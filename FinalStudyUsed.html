@@ -145,15 +145,15 @@ values you opted for in the experiment.`;
     preamble: "Please provide the following information:",
     html: "<table>" +
             "<tr>" +
-              "<td style='text-align:left'><b>Student ID:</b></td>" +
-              "<td style='text-align:right'><input name='student_id' type='text' required></td>" +
+              "<td style='text-align:left; padding: 10px;'><b>Student ID (zID):</b></td>" +
+              "<td style='text-align:right;'><input name='student_id' type='text' required></td>" +
             "</tr>" +
             "<tr>" +
-              "<td style='text-align:left'><b>Age:</b></td>" +
+              "<td style='text-align:left; padding: 10px;'><b>Age (in years):</b></td>" +
               "<td style='text-align:right'><input name='age' type='number' required></td>" +
             "</tr>" +
             "<tr>" +
-              "<td style='text-align:left'><b>Gender:</b></td>" +
+              "<td style='text-align:left; padding: 10px;'><b>Gender:</b></td>" +
               "<td style='text-align:right'>" +
                 "<select name='gender' required>" +
                   "<option value=''>Select Gender</option>" +
@@ -179,7 +179,7 @@ values you opted for in the experiment.`;
   var warningPage = {
     type: "html-button-response",
     stimulus: "<div style='border: 5px solid black; background-color: #FF0000; padding: 100px; width: 300px;'><b>Please make sure you are in a distraction free space.</b></div><br></br>",
-    choices: ['<p style="font-size:130%;line-height:0%;"><b>Continue</b></p>']
+    choices: ['<p style="font-size:130%;line-height:0%;"><b>I am in a distraction free space.</b></p>']
   };
 
   // Create a timeline to run the stimulus message
@@ -214,27 +214,27 @@ values you opted for in the experiment.`;
     type: 'survey-likert',
     preamble: "For each of the statements below, please indicate to what extent the statement is characteristic of you.",
     questions: [{
-        prompt: "I put off projects until the last minute.",
+        prompt: "<b>I put off projects until the last minute.</b>",
         labels: response_scale,
         required: true,
       },
       {
-        prompt: "I know I should work on schoolwork, but I just don&apos;t do it.",
+        prompt: "<b>I know I should work on schoolwork, but I just don&apos;t do it.</b>",
         labels: response_scale,
         required: true,
       },
       {
-        prompt: "I get distracted by other, more fun, things when I am supposed to work on schoolwork.",
+        prompt: "<b>I get distracted by other, more fun, things when I am supposed to work on schoolwork.</b>",
         labels: response_scale,
         required: true,
       },
       {
-        prompt: "When given an assignment, I usually put it away and forget about it until it is almost due.",
+        prompt: "<b>When given an assignment, I usually put it away and forget about it until it is almost due.</b>",
         labels: response_scale,
         required: true,
       },
       {
-        prompt: "I frequently find myself putting important deadlines off.",
+        prompt: "<b>I frequently find myself putting important deadlines off.</b>",
         labels: response_scale,
         required: true,
       },
