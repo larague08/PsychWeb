@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<!-- trial session link: http://jatos.psy.unsw.edu.au:9000/publix/230/start?batchId=272&generalMultiple -->
+
+<head>
+  <title>You Choose!</title>
+  <script src="jatos.js"></script>
+  <script src="jspsych-6.1.0/jspsych.js"></script>
+  <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+  <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+  <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+  <script src="jspsych-6.1.0/plugins/jspsych-instructions.js"></script>
+  <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+  <script src="jspsych-6.1.0/plugins/jspsych-survey-likert.js"></script>
+  <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css">
+  <style>
+    .jspsych-content {
+      max-width: 45em;
+    }
+  </style>
+  </link>
+
+
+</head>
+
+<body></body>
+
+<script>
+  //declaring timeline
+  var timeline = [];
+
+
+  //////////////////////
+  /* begin experiment */
+  //////////////////////
+
+
+  //generate a random subject ID with 6 characters
+  var subject_id = jsPsych.randomization.randomID(6);
+
+  // add the subject ID to experiment  making it a property
+  jsPsych.data.addProperties({
+    subject: subject_id
+  });
+
+
+  // ETHICS ETC
+
+  // ******************* WELCOME AND INFORMED CONSENT******************
+  var smallFontSize = '90%';
+  var mWidth = '16px 80px';
+
+  /* define welcome message trial */
+  var welcome = {
+    type: "html-keyboard-response",
+    stimulus: "Welcome to the experiment. Press any key to begin."
+  };
+
+  timeline.push(welcome);
+
+  var welcome_task_blurb = '<b>"You Choose!"</b> is a psychological study investigating the relationship between decision-making and people&apos;s approach to effort. To participate you will need to be using a computer (with keyboard and mouse/trackpad) and be in a quiet, distraction free space.';
+
+
+  var welcome1 = {
+    type: "html-button-response",
+    stimulus: function() {
+      return '<h1 style="text-align:center;">UNSW Sydney</h1>' +
+        '    <p style="text-align:left;line-height:190%;margin:' + mWidth + ';"><br>Thank you for applying to participate in this study. ' + welcome_task_blurb + ' It involves the following steps:</p>' +
+        '<ol style="text-align:left;line-height:190%;margin:' + mWidth + ';">' +
+        '<li>  We ask for your informed consent. Please read the participant information statement and consent form closely on the next page. <br></li>' +
+        '<li>  You will then be asked some questions about yourself.<br></li>' +
+        '<li>  This experiment will then ask you a number of questions about scenarios that you may receive a reward in.<br></li>' +
+        '<li>  Before starting the experiment, a detailed explanation of how to complete it will be given. <br></li>' +
+        '<li>  In total it should take about 30 minutes to complete.<br></li>' +
+
+        '</ol>' +
+        '<p style="text-align:left;line-height:190%;margin:' + mWidth + ';">Please <u>do not</u> use the "back" ' +
+        '   button on your browser or close the window until you reach the end of the experiment.' +
+        '   This is very likely to break the experiment and may make it difficult for you to receive your SONA credit.' +
+        '   However, if something does go wrong, please contact us! DO NOT PARTICIPATE TWICE! When you are ready to begin, click on' +
+        '   the "START" button below.<br><br></p>'
+    },
+    choices: ['<p style="font-size:130%;line-height:0%;"><b>START!</b></p>']
+  };
+  timeline.push(welcome1);
+
+
+  welcome.ethics = {};
+  welcome.ethics.selection =
+    'You are invited to take part in this research study. The research study aims to investigate real-world relevance of an effort discounting task and its potential correlation with procrastination tendencies. You have been invited to participate because you are studying PSYC1001 at UNSW.';
+  welcome.ethics.description =
+    `If you decide to take part in the research study, you will first spend some time typing words backwards. For the
+rest of the experiment, you will answer a series of questions that ask you to choose between different options,
+which may or may not be associated with reward. Sometimes these rewards will be hypothetical, but we will
+randomly select three participants to actually receive a voucher in the amount of one of the reward
+values you opted for in the experiment.`;
+
+
+  var welcome2 = {
+    type: "html-button-response",
+    stimulus: '<p style="text-align:right;font-size:' + smallFontSize + ';margin:' + mWidth + ';margin-top:30px;">Approval No. 3376</p>' +
+      '			<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>' +
+      '			PARTICIPANT INFORMATION STATEMENT</b><br><br><b>You Choose!</b><br></p>' +
+      '			<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth + ';"><b>What is the research study about?</b><br>' + welcome.ethics.selection + '<br><br>' +
+      '       <b>Who is conducting this research?</b><br>' +
+      '			The study is being carried out by the following researchers: Lara Guerreiro and Steven B. Most, UNSW Sydney School of Psychology<br><br>' +
+      '			<b>Do I have to take part in this research study?</b><br>' +
+      '			Participation in this research study is voluntary. If you do not want to take part, you do not have to. If you decide to take part and later change your mind, you are free to withdraw from the study at any stage.<br><br>' +
+      '			<b>What does participation in this research require, and are there any risks involved?</b><br>' + welcome.ethics.description + '<br><br>' +
+      '			We do not expect any part of the study to cause any harm or discomfort. Participation will require you to complete a questionnaire on your procrastination tendencies amd perform a choice task. Please let the researchers know if you need any assistance.<br><br>' +
+      '     <b>What are the possible benefits to participation?</b><br>' +
+      '     We cannot promise that you will receive any benefits from this study, but we hope to use the findings from this study to better understand the consequences and outcomes of procrastination.<br><br>' +
+      '			<b>What will happen to information about me?</b><br>' +
+      '			The information that you give us will be kept indefinitely after the project is completed. We will store your deidentified data in a non-identifiable format in a UNSW closed server that is password protected.' +
+      ' 			Researchers at UNSW are requested to store their aggregated research data in the UNSW data repository, this is a system called ResData. Once the aggregated data are deposited into this repository, they will be retained in this system permanently, but in a format where your data will not be individually identifiable.' +
+      '			Answers that you give during the study may be used for publication, and may be shared with other researchers. However this data will be de-identified meaning that it will not be linked to personal information about you.<br><br>' +
+      '			<b>Total Participation Time and Recompense to Participants</b><br>' +
+      '			In total, participation in this study will require about 30 minutes. You will receive 0.5 credit points as recompense for your participation. In addition to this, three participants will be selected at random to receive a voucher based a random selection of theirs in the choice task. </b> <br><br>' +
+      '			<b>How and when will I find out what the results of the research study are?</b><br>' +
+      '			The research team intend to publish and/ report the results of the research study in a variety of ways. All information published will be done in a way that will not identify you. If you would like to receive a copy of the results you can let the research team know by e-mailing A/Prof Steven Most (s.most@unsw.edu.au). We will only use these details to send you the results of the research.</b> <br><br>' +
+      '			<b>Inquiries</b><br>' +
+      '			If you have any questions or concerns following your participation, A/Prof Steven Most (+61 2 9385 3827, email. s.most@unsw.edu.au) will be happy to address them. Complaints about the study may be directed to UNSW Human Research Ethics Coordinator, (phone +61 2 9385 6222, email humanethics@unsw.edu.au).<br><br> ' +
+      '			Please keep a copy of this information sheet (you can download the pdf <a href="InformedConsent_3326.pdf" target="_blank">here</a>).<br>' +
+      '			<br>' +
+      '			<p style="text-align:center;"><b>PARTICIPANT CONSENT</b></p>' +
+      '			<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth +
+      ';">By continuing, you are making a decision whether or not to participate.  Clicking the button below indicates that, having read the information provided on the participant information sheet, you have decided to participate.<br><br></p>',
+
+    choices: ['<p style="font-size:130%;line-height:0%;"><b>I agree</b></p>'],
+    prompt: '<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth +
+      ';"><br>To withdraw your consent, simply close the browser tab. Your data will be deleted from our records. Please let the research know of your choice to withdraw via email. Your decision not to participate or to withdraw from the study will not affect your relationship with UNSW Sydney.<br><br></p>'
+  };
+  timeline.push(welcome2);
+
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+
+  //instructions for NCS
+  var NCS_instructions = {
+    type: "instructions",
+    pages: [
+      "Before the experiment begins, please fill out a short questionnaire."
+    ],
+    show_clickable_nav: true,
+  };
+  timeline.push(NCS_instructions);
+
+  // Variable with the likert scale used
+  var response_scale = [
+    'Disagree',
+    'Somewhat disagree',
+    'Neither agree or disagree',
+    'Somewhat agree',
+    'Agree',
+  ];
+
+  // NCS trial
+  var likert = {
+    type: 'survey-likert',
+    preamble: "For each of the statements below, please indicate to what extent the statement is characteristic of you.",
+    questions: [{
+        prompt: "I put off projects until the last minute.",
+        labels: response_scale,
+        required: true,
+      },
+      {
+        prompt: "I know I should work on schoolwork, but I just don&apos;t do it.",
+        labels: response_scale,
+        required: true,
+      },
+      {
+        prompt: "I get distracted by other, more fun, things when I am supposed to work on schoolwork.",
+        labels: response_scale,
+        required: true,
+      },
+      {
+        prompt: "When given an assignment, I usually put it away and forget about it until it is almost due.",
+        labels: response_scale,
+        required: true,
+      },
+      {
+        prompt: "I frequently find myself putting important deadlines off.",
+        labels: response_scale,
+        required: true,
+      },
+    ],
+    scale_width: 1000,
+    //modifying css of specific trial
+    on_start: function() {
+      document.getElementsByClassName("jspsych-content")[0].style.maxWidth = "95%";
+    },
+    //questions 3 4 5 7 8 9 12 16 17 are reverse scored. Also, scoring goes from -4 to +4 rather than 0 to +8 (-4 from every answer)
+    on_finish: function(data) {
+      //reversing CSS changes
+      document.getElementsByClassName("jspsych-content")[0].style.maxWidth = "45em";
+
+      // convert responses from JSON string to JS object
+      var responses = JSON.parse(data.responses);
+
+      //reverse scoring
+      responses.Q2 = 8 - responses.Q2;
+      responses.Q3 = 8 - responses.Q3;
+      responses.Q4 = 8 - responses.Q4;
+      responses.Q6 = 8 - responses.Q6;
+      responses.Q7 = 8 - responses.Q7;
+      responses.Q8 = 8 - responses.Q8;
+      responses.Q11 = 8 - responses.Q11;
+      responses.Q15 = 8 - responses.Q15;
+      responses.Q16 = 8 - responses.Q16;
+
+      //changing scoring to -4 to +4 instead of 0 to +8
+      responses.Q0 = responses.Q0 - 4;
+      responses.Q1 = responses.Q1 - 4;
+      responses.Q2 = responses.Q2 - 4;
+      responses.Q3 = responses.Q3 - 4;
+      responses.Q4 = responses.Q4 - 4;
+      responses.Q5 = responses.Q5 - 4;
+      responses.Q6 = responses.Q6 - 4;
+      responses.Q7 = responses.Q7 - 4;
+      responses.Q8 = responses.Q8 - 4;
+      responses.Q9 = responses.Q9 - 4;
+      responses.Q10 = responses.Q10 - 4;
+      responses.Q11 = responses.Q11 - 4;
+      responses.Q12 = responses.Q12 - 4;
+      responses.Q13 = responses.Q13 - 4;
+      responses.Q14 = responses.Q14 - 4;
+      responses.Q15 = responses.Q15 - 4;
+      responses.Q16 = responses.Q16 - 4;
+      responses.Q17 = responses.Q17 - 4;
+
+
+      //Need for cognition score
+      let responses_array = Object.values(responses);
+      let NCS_score = responses_array.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      );
+
+      //save the total score
+      data.score = NCS_score
+
+      // save the updated data
+      data.responses = JSON.stringify(responses);
+    }
+  };
+
+  timeline.push(likert);
+
+  //instructions
+  var typing_instructions = {
+    type: "instructions",
+    pages: [
+      "This experiment will guide you through a series of questions that each ask you to choose between two rewards. One of the rewards will require you to do a certain task to receive it." +
+      "<br><br><b>We will be choosing 3 participants at random</b> to receive one of their rewards (and if they chose the reward that requires a task, they will have to perform the task prior)." +
+      "<br><br>So, please choose as though every reward is going to be given to you.",
+      "<p>The task you will be performing to receive rewards is a backwards typing task.</p>" +
+      "First, please perform this backwards typing task to get a feel for how difficult it is",
+    ],
+    show_clickable_nav: true,
+  };
+  timeline.push(typing_instructions);
+
+
+
+  //generating a word list that will be sampled in backwards_typing
+  var words =
+    "Mouth Feature Flash Harlot Humid Gutsy Grape Atmosphere Bludgeon Imprint Club Diamond Brick Anywhere Bawling Guns Hazard Deplorable Barbaric Flesh Bull Dangerous Numeric Cougar Headache Drifter Hatch Bring Federation Limitless Heist Collarbone Healthy Fictional Fin Delicatessen Amazingly Communion Become Accomplice Frequent Faithless Hideous Cryptic Impure Computation Elsewhere Carnival Adherence Juvenile"
+
+  var word_array = words.split(" ");
+
+  // declaring typing task
+  var backwards_typing = {
+    type: 'survey-text',
+    preamble: '<p>Here is a list of <b>50 words</b>. Please type each of these words <b>backwards</b> (e.g. "heaven rat lamppost" gets typed as "nevaeh tar tsoppmal"). You will not be timed.</p>',
+    questions: [{
+      prompt: '<p style = "font-size : 15px;font-style:italic;">' + word_array.join(" ").toLowerCase() + '</p>',
+      required: false,
+      name: "NAME OF WORDARRAY",
+      placeholder: "Please type all 50 words backwards here",
+      rows: 20,
+      columns: 80
+    }]
+  }
+  timeline.push(backwards_typing);
+
+
+  var failed_typing = {
+    type: 'html-keyboard-response',
+    stimulus: "Please make sure you type all 50 words backwards. Press any key to try again.",
+  }
+
+  var if_node = {
+    timeline: [failed_typing, backwards_typing],
+    conditional_function: function() {
+      // get the data from the previous trial,
+      // and check which key was pressed
+      var data = jsPsych.data.get().last(1).values()[0];
+      if (data.responses.length < 250) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+  timeline.push(if_node);
+
+  //introducing the DST
+  var DST_instructions = {
+    type: "instructions",
+    pages: [
+      "Thank you." +
+      "<br><br>You will now be asked a series of questions about whether you would like to type a number of words backwards for a given reward." +
+      "<br><br>Remember, we will be <b>choosing 3 participants at random</b> to receive one of their rewards (and if they chose the reward that requires a task, they will have to perform the task prior)." +
+      "<br><br>So, please choose as though every reward you choose is <b>real</b> and going to be given to you.",
+    ],
+    show_clickable_nav: true,
+  };
+  timeline.push(DST_instructions);
+
+
+  //declaring what the reward will be for the initial task
+  var initial_SE_reward;
+  var indifference_point = 0;
+
+  //declaring variables for binary search algoirthm
+  var SE_array = [];
+  for (var i = 1; i <= 20; i++) {
+    SE_array.push(i);
+  }
+  var first = 0;
+  var last = SE_array.length - 1;
+
+  //declaring randomized effort levels CONSIDER MAKING THESE TIMELINE variables
+  //and then invoking them in discounting_skeleton with jsPsych.timelineVariables!!!
+  var first_effortlevel = 50;
+  var second_effortlevel = 75;
+  var third_effortlevel = 25;
+  var fourth_effortlevel = 100;
+
+
+  //declaring variable which will track timepoint throughout the experiment
+  var time_point = 0;
+
+
+
+
+  //>_____________________FIRST TIME POINT (TIMEPOINT0__________________<//
+
+  //*************FIRST EFFORT LEVEL********************
+
+  function question_stimuli(time_point_variation) {
+    return [
+      //stimuli for first effort level
+      {
+        stimulus: function() {
+          if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'l') {
+            first = SE_array.indexOf(initial_SE_reward + 1);
+            initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
+            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+            <br><br>OR<br><br>
+            Press 'L' if you would prefer to type ` + first_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+          } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
+            last = SE_array.indexOf(initial_SE_reward - 1);
+            initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
+            return `Press 'A' to if you would you prefer to simply receive <b>$` + initial_SE_reward + `</b> ${time_point_variation}
+            <br><br>OR<br><br>
+            Press 'L' if you would prefer to type ` + first_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+          }
+        },
+        skeleton: initial_SE_reward,
+        specific_effort_level: first_effortlevel
+      },
+
+      //stimuli for second effort level
+      {
+        stimulus: function() {
+          if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'l') {
+            first = SE_array.indexOf(initial_SE_reward + 1);
+            initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
+            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+          <br><br>OR<br><br>
+          Press 'L' if you would prefer to type ` + second_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+          } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
+            last = SE_array.indexOf(initial_SE_reward - 1);
+            initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
+            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+          <br><br>OR<br><br>
+          Press 'L' if you would prefer to type ` + second_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+          }
+        },
+        skeleton: initial_SE_reward,
+        specific_effort_level: second_effortlevel
+      },
+
+      //stimuli for third effort level
+      {
+        stimulus: function() {
+          if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'l') {
+            first = SE_array.indexOf(initial_SE_reward + 1);
+            initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
+            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+        <br><br>OR<br><br>
+        Press 'L' if you would prefer to type ` + third_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+          } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
+            last = SE_array.indexOf(initial_SE_reward - 1);
+            initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
+            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+        <br><br>OR<br><br>
+        Press 'L' if you would prefer to type ` + third_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+          }
+        },
+        skeleton: initial_SE_reward,
+        specific_effort_level: third_effortlevel
+      },
+
+      //stimuli for fourth effort level
+      {
+        stimulus: function() {
+          if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'l') {
+            first = SE_array.indexOf(initial_SE_reward + 1);
+            initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
+            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+      <br><br>OR<br><br>
+      Press 'L' if you would prefer to type ` + fourth_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+          } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
+            last = SE_array.indexOf(initial_SE_reward - 1);
+            initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
+            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+      <br><br>OR<br><br>
+      Press 'L' if you would prefer to type ` + fourth_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+          }
+        },
+        skeleton: initial_SE_reward,
+        specific_effort_level: fourth_effortlevel
+      },
+
+    ];
+  }
+
+  //declaring variables that will be used in loop functio nfor adjusted_immediate_discounting and in discounting_skeleton
+  var SE_rewards_taken_at_effort_level = [];
+  var LH_rewards_taken_at_effort_level = [];
+
+  function discounting_skeleton(time_point_variation) {
+    initial_SE_reward = jsPsych.randomization.sampleWithReplacement([7, 8, 9, 10, 11, 12], 1)[0];
+    return {
+      type: 'html-keyboard-response',
+      post_trial_gap: 500,
+      stimulus: function() {
+        //setting first and last so that they're the same each time this timeline is iterated through
+        return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+          <br><br>OR<br><br>
+          Press 'L' if you would prefer to type ` + jsPsych.timelineVariable('specific_effort_level', true) + ` words backwards for <b>$20</b> ${time_point_variation}.`;
+      },
+      choices: ['a', 'l'],
+      data: {
+        'SE_reward_offered': 37, //just creating the variable which on_finish will edit. Number is arbitrary
+        'indifference_point': 37,
+        'effort_level': function() {
+          return jsPsych.timelineVariable('specific_effort_level', true)
+        },
+      },
+      on_finish: function(data) {
+        data.SE_reward_offered = initial_SE_reward;
+        data.indifference_point = 0;
+        data.effort_level = jsPsych.timelineVariable('specific_effort_level', true);
+        SE_rewards_taken_at_effort_level = [initial_SE_reward]; // keep in mind these two variables are set regardless of what key is pressed (which is a lil buggy)
+        LH_rewards_taken_at_effort_level = [initial_SE_reward];
+        console.log(SE_rewards_taken_at_effort_level);
+        console.log(LH_rewards_taken_at_effort_level);
+      },
+    };
+  };
+
+
+  var adjusted_immediate_discounting = {
+    type: 'html-keyboard-response',
+    stimulus: jsPsych.timelineVariable('stimulus'),
+    choices: ['a', 'l'],
+    post_trial_gap: 500,
+    on_finish: function(data) {
+      data.SE_reward_offered = initial_SE_reward;
+      data.indifference_point = indifference_point;
+      data.effort_level = jsPsych.timelineVariable('specific_effort_level', true);
+
+      console.log(SE_rewards_taken_at_effort_level);
+      console.log(LH_rewards_taken_at_effort_level);
+      past_trial_data = jsPsych.data.get().filter({
+        effort_level: jsPsych.timelineVariable('specific_effort_level', true),
+        timepoint: time_point
+      });
+      SE_rewards_taken_at_effort_level = past_trial_data.last(past_trial_data.count()).filter({
+        key_press: 65
+      }).select('SE_reward_offered').values;
+      LH_rewards_taken_at_effort_level = past_trial_data.last(past_trial_data.count()).filter({
+        key_press: 76
+      }).select('SE_reward_offered').values;
+      console.log(SE_rewards_taken_at_effort_level);
+      console.log(LH_rewards_taken_at_effort_level);
+    },
+  };
+
+
+  var finding_indifference_point = {
+    timeline: [adjusted_immediate_discounting],
+    loop_function: function(data) {
+
+      console.log(SE_rewards_taken_at_effort_level);
+      console.log(LH_rewards_taken_at_effort_level);
+      //if loop runs if their indifference_point is found
+      //i.e. IF THEY PRESS 'A' TO A NUMBER ONE MORE THAN THE MAX LH REWARD THEY'VE ACCEPTED OR IF THEY PRESS 'L' TO A NUMBER ONE LESS THAN THE MIN SE THEY'VE ACCEPTED
+      if ((
+          (jsPsych.pluginAPI.convertKeyCharacterToKeyCode('a') === data.values()[0].key_press) && Math.max.apply(Math, LH_rewards_taken_at_effort_level) ===
+          (data.values()[0].SE_reward_offered - 1)
+        ) ||
+        (jsPsych.pluginAPI.convertKeyCharacterToKeyCode('l') === data.values()[0].key_press) && Math.min.apply(Math, SE_rewards_taken_at_effort_level) ===
+        (data.values()[0].SE_reward_offered + 1)
+      ) {
+        //INDIFFERENCE POINT SETTING
+        data.values()[0].indifference_point = Math.min.apply(Math, SE_rewards_taken_at_effort_level);
+        //RESETTING OF VARIABLES
+        initial_SE_reward = jsPsych.randomization.sampleWithReplacement([7, 8, 9, 10, 11, 12], 1)[0]; // resets initial_SE_reward in preparation for the next effort level.
+        data.SE_reward_offered = initial_SE_reward;
+        past_trial_data = 0; //resetting past_trial_data
+        SE_rewards_taken_at_effort_level = 0; //resetting SE_rewards_taken_at_effort_level
+        SE_rewards_taken_at_effort_level = 0; //resetting LH_rewards_taken_at_effort_level
+        first = 0;
+        last = SE_array.length - 1;
+        //ENDING LOOP
+        return false;
+      }
+      //If their indiff point is lower than 1 then default to 0
+      else if (jsPsych.pluginAPI.convertKeyCharacterToKeyCode('a') === data.values()[0].key_press && (data.values()[0].SE_reward_offered === 1)) {
+        //SETTING INDIFFERENCE POINT
+        data.values()[0].indifference_point = 1;
+        //RESETTING OF VARIABLES
+        initial_SE_reward = jsPsych.randomization.sampleWithReplacement([7, 8, 9, 10, 11, 12], 1)[0]; // resets initial_SE_reward in preparation for the next effort level.
+        data.SE_reward_offered = initial_SE_reward;
+        past_trial_data = 0; //resetting past_trial_data
+        SE_rewards_taken_at_effort_level = 0; //resetting SE_rewards_taken_at_effort_level
+        SE_rewards_taken_at_effort_level = 0; //resetting LH_rewards_taken_at_effort_level
+        first = 0;
+        last = SE_array.length - 1;
+        //ENDING LOOP
+        return false;
+      }
+      //If their indfiff point is higher than 20 then default to 20
+      else if (jsPsych.pluginAPI.convertKeyCharacterToKeyCode('l') === data.values()[0].key_press && (data.values()[0].SE_reward_offered === 20)) {
+        //SETTING INDIFFERENCE POINT
+        data.values()[0].indifference_point = 20;
+        //RESETTING OF VARIABLES
+        initial_SE_reward = jsPsych.randomization.sampleWithReplacement([7, 8, 9, 10, 11, 12], 1)[0]; // resets initial_SE_reward in preparation for the next effort level.
+        data.SE_reward_offered = initial_SE_reward;
+        past_trial_data = 0; //resetting past_trial_data
+        SE_rewards_taken_at_effort_level = 0; //resetting SE_rewards_taken_at_effort_level
+        SE_rewards_taken_at_effort_level = 0; //resetting LH_rewards_taken_at_effort_level
+        first = 0;
+        last = SE_array.length - 1;
+        //ENDING LOOP
+        return false;
+      }
+      //else loop runs if they haven't reached their indifference point yet.
+      else {
+        indifference_point = 0;
+        return true;
+      }
+    }
+  }
+
+
+  function thank_you(time_point_variation) {
+    return {
+      type: 'instructions',
+      pages: [`In the next few questions, you'll be asked what you would do if you had to wait <b>${time_point_variation}</b> before receiving the reward and exerting the effort.`],
+      show_clickable_nav: true,
+    };
+
+  };
+
+  var break_trial = {
+    type: 'instructions',
+    pages: function() {
+      if (jsPsych.data.get().last(1).values()[0].effort_level === fourth_effortlevel) {
+        time_point = time_point + 1; //time point variable
+        return ["Thank you. <br><br>Click next to continue."];
+      } else {
+        return ["Thank you for answering these questions about typing " + jsPsych.data.get().last(1).values()[0].effort_level +
+          " words backwards.</b> <br><br>You will now be asked about what you would do if you had to type a different number of words backwards."
+        ];
+      }
+    },
+    show_clickable_nav: true,
+  };
+
+
+  //creating variables for timepoint0
+  var timepoint0 = {
+    timeline: [discounting_skeleton("<i>right now</i>"), finding_indifference_point, break_trial],
+    timeline_variables: question_stimuli("<i>right now</i>"),
+    data: {
+      timepoint: 0
+    },
+  }
+  timeline.push(timepoint0);
+  timeline.push(thank_you("<b>one day</b>"))
+  //>_______END OF FIRST TIME POINT (TIMEPOINT0________zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz___<//
+
+
+  //creating variables for timepoint1
+  var timepoint1 = {
+    timeline: [discounting_skeleton("<i>one day from now</i>"), finding_indifference_point, break_trial],
+    timeline_variables: question_stimuli("<i>one day from now</i>"),
+    data: {
+      timepoint: 1
+    },
+  }
+  timeline.push(timepoint1);
+  timeline.push(thank_you("<b>one month</b>"))
+
+  //creating variables for timepoint2
+  var timepoint2 = {
+    timeline: [discounting_skeleton("<i>one month from now</i>"), finding_indifference_point, break_trial],
+    timeline_variables: question_stimuli("<i>one month from now</i>"),
+    data: {
+      timepoint: 2
+    },
+  }
+  timeline.push(timepoint2);
+
+
+  //checking use of computer before running the timeline. If mob is used then replacce contents of timeline with using_mobile_device
+  function detectMob() {
+    return ((window.innerWidth <= 800) && (window.innerHeight <= 600));
+  };
+
+  var using_mobile_device = {
+    type: "instructions",
+    pages: [
+      '<p style="text-align:center;font-size:150%">You seem to be using a mobile device so you will not currently be able to complete this survey.<br><br>To complete this survey, please visit this website using a computer with a keyboard and mouse/trackpad.</p>'
+    ]
+  };
+
+  if (detectMob() === true) {
+    timeline = [using_mobile_device];
+  };
+
+  //initialising experiment
+  //set jatosVersion to false to run locally without JATOS, true when JATOS is understood and running
+  var jatosVersion = false;
+  if (jatosVersion === false) {
+    //start the experiment without jatos wrapping
+    jsPsych.init({
+      timeline: timeline,
+      show_progress_bar: true,
+      on_finish: function() {
+        jsPsych.data.get().ignore(['internal_node_id']).localSave('csv', '.myData.csv'); /* This is just to store it locally!! Don't do this over  the 			internet or it will store on their computer!*/
+      }
+    });
+  } else {
+    jatos.onLoad(function() {
+      /* start the experiment with jatos wrapping AND set up the SONA talk back*/
+      // ---------- subject info ----------
+      sona_id = jatos.urlQueryParameters.pID; // jsPsych.data.getURLVariable("id");
+      jsPsych.data.addProperties({
+        sona_id: sona_id
+      });
+      var completion_url = "https://unsw-psy.sona-systems.com/webstudy_credit.aspx?experiment_id=1373&credit_token=9a2498f9a35248b582fc119f6729baa5&survey_code=" + sona_id;
+      var finish_msg = 'All done! Please click <a href="' + completion_url + '">here</a> to be returned to Sona and receive your credit';
+      jsPsych.init({
+        timeline: timeline,
+        show_progress_bar: true,
+        on_finish: function() {
+          var results = jsPsych.data.get().ignore(['internal_node_id', 'button_pressed']).csv();
+          jatos.submitResultData(results);
+          document.write(`<div id="endscreen" class="endscreen" style="width:1000px"><div class="endscreen" style="text-align:center; border:0px solid; padding:10px; font-size:140%; width:800px;"><p><br><br><br>
+          ${finish_msg}</p></div></div>`)
+        }
+      });
+    });
+  };
+</script>
+
+
+
+</html>
