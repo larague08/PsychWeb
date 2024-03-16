@@ -178,9 +178,17 @@ values you opted for in the experiment.`;
     // define page
   var warningPage = {
     type: "html-button-response",
-    stimulus: "<div style='border: 5px solid black; background-color: #FF0000; padding: 100px; width: 300px;'><b>Please make sure you are in a distraction free space.</b></div><br></br>",
+    stimulus: "<div style=color:red;'><b>"
+      + "<h1 style='text-align:center; width:100%;'>"
+      + "Please make sure you are in a<br></br>distraction free space.<br></br><br></br>"
+      + "This includes turning off your phone and any<br></br>other notifications.<br></br><br></br>"
+      + "This task will take 30 minutes to complete."
+      + "</h1>"
+      + "</div><br></br>",
     choices: ['<p style="font-size:130%;line-height:0%;"><b>I am in a distraction free space.</b></p>']
   };
+
+  // Please make sure you are in a distraction free space. This includes turning off your phone and any other notifications. This task will take 30 minutes to complete. 
 
   // Create a timeline to run the stimulus message
   timeline.push(warningPage);
