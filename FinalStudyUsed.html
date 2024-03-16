@@ -130,22 +130,17 @@ values you opted for in the experiment.`;
     prompt: '<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth +
       ';"><br>To withdraw your consent, simply close the browser tab. Your data will be deleted from our records. Please let the research know of your choice to withdraw via email. Your decision not to participate or to withdraw from the study will not affect your relationship with UNSW Sydney.<br><br></p>'
   };
-  timeline.push(welcome2);
 
-  timeline.push({
-    type: 'fullscreen',
-    fullscreen_mode: true
-  });
+  timeline.push(welcome2);
 
   ////////////////////////
   /* TASK 1 TO COMPLETE */
   ////////////////////////
 
-  // define page
-  var disclaimer = {
-    type: "html-keyboard-response",
-    stimulus: "Before we begin, please provide the following details about yourself."
-  };
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
 
   // Add screen with personal details (zID, Age (in years), gender (drop down box))
 
@@ -154,6 +149,16 @@ values you opted for in the experiment.`;
   ////////////////////////
 
   // Add disclaimer screen for users to be in 'distraction free space' - red box & font big warning 
+
+    // define page
+  var warningPage = {
+    type: "html-button-response",
+    stimulus: "<div style='border: 5px solid black; background-color: #FF0000; padding: 100px; width: 300px;'><b>Please make sure you are in a distraction free space.</b></div><br></br>",
+    choices: ['<p style="font-size:130%;line-height:0%;"><b>Continue</b></p>']
+  };
+
+  // Create a timeline to run the stimulus message
+  timeline.push(warningPage);
 
   //instructions for NCS
   var NCS_instructions = {
