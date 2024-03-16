@@ -12,6 +12,7 @@
   <script src="jspsych-6.1.0/plugins/jspsych-instructions.js"></script>
   <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
   <script src="jspsych-6.1.0/plugins/jspsych-survey-likert.js"></script>
+  <script src="jspsych-6.1.0/plugins/jspsych-survey-html-form.js"></script>
   <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css">
   <style>
     .jspsych-content {
@@ -137,12 +138,36 @@ values you opted for in the experiment.`;
   /* TASK 1 TO COMPLETE */
   ////////////////////////
 
-  timeline.push({
-    type: 'fullscreen',
-    fullscreen_mode: true
-  });
-
   // Add screen with personal details (zID, Age (in years), gender (drop down box))
+
+  var user_information_form = {
+    type: "survey-html-form",
+    preamble: "Please provide the following information:",
+    html: "<table>" +
+            "<tr>" +
+              "<td style='text-align:left'><b>Student ID:</b></td>" +
+              "<td style='text-align:right'><input name='student_id' type='text' required></td>" +
+            "</tr>" +
+            "<tr>" +
+              "<td style='text-align:left'><b>Age:</b></td>" +
+              "<td style='text-align:right'><input name='age' type='number' required></td>" +
+            "</tr>" +
+            "<tr>" +
+              "<td style='text-align:left'><b>Gender:</b></td>" +
+              "<td style='text-align:right'>" +
+                "<select name='gender' required>" +
+                  "<option value=''>Select Gender</option>" +
+                  "<option value='male'>Male</option>" +
+                  "<option value='female'>Female</option>" +
+                  "<option value='non-binary'>Non-Binary</option>" +
+                  "<option value='prefer-not-to-say'>Preferred Not to Say</option>" +
+                "</select>" +
+              "</td>" +
+            "</tr>" +
+          "</table>",
+  };
+
+  timeline.push(user_information_form);
 
   ////////////////////////
   /* TASK 2 TO COMPLETE */
@@ -159,6 +184,11 @@ values you opted for in the experiment.`;
 
   // Create a timeline to run the stimulus message
   timeline.push(warningPage);
+
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
 
   //instructions for NCS
   var NCS_instructions = {
