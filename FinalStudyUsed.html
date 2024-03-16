@@ -137,6 +137,24 @@ values you opted for in the experiment.`;
     fullscreen_mode: true
   });
 
+  ////////////////////////
+  /* TASK 1 TO COMPLETE */
+  ////////////////////////
+
+  // define page
+  var disclaimer = {
+    type: "html-keyboard-response",
+    stimulus: "Before we begin, please provide the following details about yourself."
+  };
+
+  // Add screen with personal details (zID, Age (in years), gender (drop down box))
+
+  ////////////////////////
+  /* TASK 2 TO COMPLETE */
+  ////////////////////////
+
+  // Add disclaimer screen for users to be in 'distraction free space' - red box & font big warning 
+
   //instructions for NCS
   var NCS_instructions = {
     type: "instructions",
@@ -199,7 +217,8 @@ values you opted for in the experiment.`;
       // convert responses from JSON string to JS object
       var responses = JSON.parse(data.responses);
 
-      //reverse scoring
+      //reverse scoring 
+      // Lara wont need this
       responses.Q2 = 8 - responses.Q2;
       responses.Q3 = 8 - responses.Q3;
       responses.Q4 = 8 - responses.Q4;
@@ -211,16 +230,17 @@ values you opted for in the experiment.`;
       responses.Q16 = 8 - responses.Q16;
 
       //changing scoring to -4 to +4 instead of 0 to +8
-      responses.Q0 = responses.Q0 - 4;
-      responses.Q1 = responses.Q1 - 4;
-      responses.Q2 = responses.Q2 - 4;
-      responses.Q3 = responses.Q3 - 4;
-      responses.Q4 = responses.Q4 - 4;
-      responses.Q5 = responses.Q5 - 4;
-      responses.Q6 = responses.Q6 - 4;
-      responses.Q7 = responses.Q7 - 4;
-      responses.Q8 = responses.Q8 - 4;
-      responses.Q9 = responses.Q9 - 4;
+      // Lara's scoring = -2 to +2 
+      responses.Q0 = responses.Q0 - 2;
+      responses.Q1 = responses.Q1 - 2;
+      responses.Q2 = responses.Q2 - 2;
+      responses.Q3 = responses.Q3 - 2;
+      responses.Q4 = responses.Q4 - 2;
+      responses.Q5 = responses.Q5 - 2;
+      responses.Q6 = responses.Q6 - 2;
+      responses.Q7 = responses.Q7 - 2;
+      responses.Q8 = responses.Q8 - 2;
+      responses.Q9 = responses.Q9 - 2;
       responses.Q10 = responses.Q10 - 4;
       responses.Q11 = responses.Q11 - 4;
       responses.Q12 = responses.Q12 - 4;
