@@ -132,112 +132,6 @@
   timeline.push(welcome2);
 
   ////////////////////////
-  /* TASK 3 TO COMPLETE */
-  ////////////////////////
-
-  // Final consent question
-  // Thank you for participating in this study! We have one final question to ask. The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B. This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task and grades. Once your grades have been collected and matched with data from this current study, your student ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. 
-  // I agree to have the researchers of this experiment collect my end-of-term grades for the PSYC 1A and 1B course. I understand that I am allowed to withhold permission and that withholding my permission will not affect my relationship with UNSW in any way.
-  // I grant permission for the researchers to access my PSYC 1A and 1B grades.       
-   // yes AND no button and either answer pushes them to the next slide 
-
-   var finalConsent= {
-      type: 'html-button-response',
-      stimulus: '<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>' 
-              + 'FINAL CONSENT STATEMENT</b><br></p>'
-              + '<p style="text-align:left;line-height:190%;margin:' + mWidth + ';">'
-              + 'Thank you for participating in this study! <br><br> The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B.'  
-              + 'This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task, date of experiment participation, and ' 
-              + 'grades. Only the faculty supervisor of this project will have access to information linking your student ID with your grades. <br><br>Once your grades have been collected and matched with data from this current study, your student '
-              + 'ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. <br><br>'
-              + '<b><i>I agree to have the researchers of this experiment collect my end-of-term grades for the PSYC 1A and 1B course. <br><br>'
-              + 'I understand that I am allowed to withhold permission and that withholding my permission will not affect my relationship '
-              + 'with UNSW in any way. <br><br>'
-              + 'I grant permission for the researchers to access my PSYC 1A and 1B grades.'
-              + '</i></b></p>',
-      choices: ['Yes', 'No'],
-      prompt: "<br><b>Do you consent?</b><br>"
-    };
-
-  timeline.push(finalConsent);
-
-  ////////////////////////
-  /* TASK 4 TO COMPLETE */
-  ////////////////////////
-
-  // Debriefing
-  // Thank you very much. The experiment is now complete. You may close this window. If you are interested in learning more about this study and its purpose please see below further information. 
-   // 1.	Research questions: (BOLD TEXT)
-   // Is there a correlation between an individual’s self-reported procrastination tendencies and performance in an effort discounting task, and do these measures predict academic performance in PSYC 1A and 1B? Effort discounting refers to a tendency for people to select the lower of two rewards if it entails less effort to receive it.
-   // 2. How does this study extend on previous research on this topic? (BOLD TEXT)
-   // Previous research (Johnson & Most, 2023) has demonstrated that people often engage in more effort discounting if the effort is imminent than when assigning the effort to their future selves. This may be considered an objective analogue of tendency to procrastinate effort. This study will extend on this research by investigating an additional characteristic, whether self-reported procrastination and effort discounting indeed correlate with each other. For those participants who grant permission, we will additionally test whether one or both measures predicts academic performance in PSYC 1A and 1B. 
-   // 3.	Potential real-world implications: (BOLD TEXT)
-   // Determining a correlation between self-reported procrastination and performance in effort discounting tasks has potential real-life implications in understanding the outcomes and consequences of procrastination. Procrastination is not unique to academic studies and can be experienced by everyone in their daily living. Therefore, by understanding the potential consequences of having higher traits of procrastination and whether it is correlated with people’s decision making and/or performance in academic studies may lead to the development of strategies that people can adopt to avoid procrastination if we know it is in their best interest. 
-   // 4.	Briefly describe a potential issue or limitation of the study (BOLD TEXT)
-   // A potential practical issue of this study is that participants may not provide consent for us to collect their grades. This will limit the effects we are able to observe, however if we are unable to collect this data, the study will still be valid in exploring the relationship between self-reported procrastination and effort discounting. A possible limitation of the study is also that it is to be conducted online with participants completing the experiment in their own time and space. This means there are limits to how controlled the study is and we cannot guarantee participants’ full focus and attention. However, the experiment will have clear instructions asking participants to be in a quiet, distraction free room and we will recruit a large sample size to ensure accurate average results.  
-  // 5.	Briefly describe the study methodology (BOLD TEXT)
-  // The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measures of self-reported procrastination and end-of-term PSYC 1A and 1B grade. Dependent variables include score in Academic Procrastination Scale -Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).
-  // 6.	Further readings (BOLD TEXT)
-  // Johnson, S. T., & Most, S. B. (2023). Taking the path of least resistance now, but not later: Pushing cognitive effort into the future reduces effort discounting. Psychon Bull Rev, 30(3), 1115-1124. https://doi.org/10.3758/s13423-022-02198-7 
-
-  var debriefing = {
-    type: "html-button-response",
-    stimulus: function() {
-      return '<h1 style="text-align:center;">UNSW Sydney</h1>' +
-        '    <p style="text-align:left;line-height:190%;margin:' + mWidth + ';"><br>Thank you very much. The experiment is now complete. You may close this window. If you are interested in learning more about this study and its purpose please see below further information.</p>' +
-        '<ol style="text-align:left;line-height:190%;margin:' + mWidth + ';" type="1">' +
-        '<li><b>  Research questions: </b><br></li>' +
-          '<p style="text-align:left;line-height:190%;">' +
-            'Is there a correlation between an individual&apos;s self-reported procrastination tendencies and ' 
-            + 'performance in an effort discounting task, and do these measures predict academic performance in '
-            + 'PSYC 1A and 1B? Effort discounting refers to a tendency for people to select the lower of two rewards '
-            + 'if it entails less effort to receive it. </p>' +
-        '<li><b>  How does this study extend on previous research on this topic? </b><br></li>' +
-          '<p style="text-align:left;line-height:190%;">' +
-            'Previous research (Johnson & Most, 2023) has demonstrated that people often engage in more effort discounting '
-            + 'if the effort is imminent than when assigning the effort to their future selves. This may be considered an '
-            + 'objective analogue of tendency to procrastinate effort. This study will extend on this research by investigating ' 
-            + 'an additional characteristic, whether self-reported procrastination and effort discounting indeed correlate with each other. ' 
-            + 'For those participants who grant permission, we will additionally test whether one or both measures predicts academic' 
-            + 'performance in PSYC 1A and 1B.'
-          + '</p>' +
-        '<li><b>  Potential real-world implications: </b><br></li>' +
-          '<p style="text-align:left;line-height:190%;">' +
-            'Determining a correlation between self-reported procrastination and performance in effort discounting tasks has potential ' 
-            + 'real-life implications in understanding the outcomes and consequences of procrastination. Procrastination is not unique to '
-            + 'academic studies and can be experienced by everyone in their daily living. Therefore, by understanding the potential ' 
-            + 'consequences of having higher traits of procrastination and whether it is correlated with people&apos;s decision making ' 
-            + 'and/or performance in academic studies may lead to the development of strategies that people can adopt to avoid procrastination ' 
-            + 'if we know it is in their best interest.'
-            + '</p>' +
-        '<li><b>  Briefly describe a potential issue or limitation of the study </b><br></li>' +
-          '<p style="text-align:left;line-height:190%;">' +
-            'A potential practical issue of this study is that participants may not provide consent for us to collect their grades. This will ' 
-            + 'limit the effects we are able to observe, however if we are unable to collect this data, the study will still be valid in exploring ' 
-            + 'the relationship between self-reported procrastination and effort discounting. A possible limitation of the study is also that it ' 
-            + 'is to be conducted online with participants completing the experiment in their own time and space. '
-            + 'This means there are limits to how controlled the study is and we cannot guarantee participants&apos; full focus and attention. ' 
-            + 'However, the experiment will have clear instructions asking participants to be in a quiet, distraction free room and we will recruit ' 
-            + 'a large sample size to ensure accurate average results. '
-            + '</p>' +
-        '<li><b>  Briefly describe the study methodology </b><br></li>' +
-          '<p style="text-align:left;line-height:190%;">' +
-            'The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measure ' 
-            + 'of self-reported procrastination and end-of-term PSYC 1A and 1B grade. Dependent variables include score in Academic Procrastination Scale '
-            + '-Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables '
-            + 'are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).'
-            + '</p>' +
-        '<li><b>  Further readings </b><br></li>' +
-          '<p style="text-align:left;line-height:190%;">' +
-            'Johnson, S. T., & Most, S. B. (2023). Taking the path of least resistance now, but not later: Pushing cognitive effort into the future reduces effort discounting. ' 
-            + 'Psychon Bull Rev, 30(3), 1115-1124. https://doi.org/10.3758/s13423-022-02198-7 ' +
-        '</ol>'
-    },
-    choices: ['<p style="font-size:130%;line-height:0%;"><b>Finish</b></p>']
-  };
-  timeline.push(debriefing);
-
-  ////////////////////////
   /* TASK 1 TO COMPLETE */
   ////////////////////////
 
@@ -801,7 +695,7 @@
     return ((window.innerWidth <= 800) && (window.innerHeight <= 600));
   };
 
-  var using_mobile_device = {
+  var using_mobile_device = { 
     type: "instructions",
     pages: [
       '<p style="text-align:center;font-size:150%">You seem to be using a mobile device so you will not currently be able to complete this survey.<br><br>To complete this survey, please visit this website using a computer with a keyboard and mouse/trackpad.</p>'
@@ -811,11 +705,120 @@
   if (detectMob() === true) {
     timeline = [using_mobile_device];
   };
-  
+     ////////////////////////
+  /* TASK 3 TO COMPLETE */
+  ////////////////////////
+
+  // Final consent question
+  // Thank you for participating in this study! We have one final question to ask. The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B. This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task and grades. Once your grades have been collected and matched with data from this current study, your student ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. 
+  // I agree to have the researchers of this experiment collect my end-of-term grades for the PSYC 1A and 1B course. I understand that I am allowed to withhold permission and that withholding my permission will not affect my relationship with UNSW in any way.
+  // I grant permission for the researchers to access my PSYC 1A and 1B grades.       
+   // yes AND no button and either answer pushes them to the next slide 
+
+   var finalConsent= {
+      type: 'html-button-response',
+      stimulus: '<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>' 
+              + 'FINAL CONSENT STATEMENT</b><br></p>'
+              + '<p style="text-align:left;line-height:190%;margin:' + mWidth + ';">'
+              + 'Thank you for participating in this study! <br><br> The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B.'  
+              + 'This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task, date of experiment participation, and ' 
+              + 'grades. Only the faculty supervisor of this project will have access to information linking your student ID with your grades. <br><br>Once your grades have been collected and matched with data from this current study, your student '
+              + 'ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. <br><br>'
+              + '<b><i>I agree to have the researchers of this experiment collect my end-of-term grades for the PSYC 1A and 1B course. <br><br>'
+              + 'I understand that I am allowed to withhold permission and that withholding my permission will not affect my relationship '
+              + 'with UNSW in any way. <br><br>'
+              + 'I grant permission for the researchers to access my PSYC 1A and 1B grades.'
+              + '</i></b></p>',
+      choices: ['Yes', 'No'],
+      prompt: "<br><b>Do you consent?</b><br>"
+    };
+
+  timeline.push(finalConsent);
+
+////////////////////////
+  /* TASK 4 TO COMPLETE */
+  ////////////////////////
+
+  // Debriefing
+  // Thank you very much. The experiment is now complete. You may close this window. If you are interested in learning more about this study and its purpose please see below further information. 
+   // 1.	Research questions: (BOLD TEXT)
+   // Is there a correlation between an individual’s self-reported procrastination tendencies and performance in an effort discounting task, and do these measures predict academic performance in PSYC 1A and 1B? Effort discounting refers to a tendency for people to select the lower of two rewards if it entails less effort to receive it.
+   // 2. How does this study extend on previous research on this topic? (BOLD TEXT)
+   // Previous research (Johnson & Most, 2023) has demonstrated that people often engage in more effort discounting if the effort is imminent than when assigning the effort to their future selves. This may be considered an objective analogue of tendency to procrastinate effort. This study will extend on this research by investigating an additional characteristic, whether self-reported procrastination and effort discounting indeed correlate with each other. For those participants who grant permission, we will additionally test whether one or both measures predicts academic performance in PSYC 1A and 1B. 
+   // 3.	Potential real-world implications: (BOLD TEXT)
+   // Determining a correlation between self-reported procrastination and performance in effort discounting tasks has potential real-life implications in understanding the outcomes and consequences of procrastination. Procrastination is not unique to academic studies and can be experienced by everyone in their daily living. Therefore, by understanding the potential consequences of having higher traits of procrastination and whether it is correlated with people’s decision making and/or performance in academic studies may lead to the development of strategies that people can adopt to avoid procrastination if we know it is in their best interest. 
+   // 4.	Briefly describe a potential issue or limitation of the study (BOLD TEXT)
+   // A potential practical issue of this study is that participants may not provide consent for us to collect their grades. This will limit the effects we are able to observe, however if we are unable to collect this data, the study will still be valid in exploring the relationship between self-reported procrastination and effort discounting. A possible limitation of the study is also that it is to be conducted online with participants completing the experiment in their own time and space. This means there are limits to how controlled the study is and we cannot guarantee participants’ full focus and attention. However, the experiment will have clear instructions asking participants to be in a quiet, distraction free room and we will recruit a large sample size to ensure accurate average results.  
+  // 5.	Briefly describe the study methodology (BOLD TEXT)
+  // The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measures of self-reported procrastination and end-of-term PSYC 1A and 1B grade. Dependent variables include score in Academic Procrastination Scale -Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).
+  // 6.	Further readings (BOLD TEXT)
+  // Johnson, S. T., & Most, S. B. (2023). Taking the path of least resistance now, but not later: Pushing cognitive effort into the future reduces effort discounting. Psychon Bull Rev, 30(3), 1115-1124. https://doi.org/10.3758/s13423-022-02198-7 
+
+  var debriefing = {
+    type: "html-button-response",
+    stimulus: function() {
+      return '<h1 style="text-align:center;">UNSW Sydney</h1>' +
+        '    <p style="text-align:left;line-height:190%;margin:' + mWidth + ';"><br>Thank you very much. The experiment is now complete. You may close this window. If you are interested in learning more about this study and its purpose please see below further information.</p>' +
+        '<ol style="text-align:left;line-height:190%;margin:' + mWidth + ';" type="1">' +
+        '<li><b>  Research questions: </b><br></li>' +
+          '<p style="text-align:left;line-height:190%;">' +
+            'Is there a correlation between an individual&apos;s self-reported procrastination tendencies and ' 
+            + 'performance in an effort discounting task, and do these measures predict academic performance in '
+            + 'PSYC 1A and 1B? Effort discounting refers to a tendency for people to select the lower of two rewards '
+            + 'if it entails less effort to receive it. </p>' +
+        '<li><b>  How does this study extend on previous research on this topic? </b><br></li>' +
+          '<p style="text-align:left;line-height:190%;">' +
+            'Previous research (Johnson & Most, 2023) has demonstrated that people often engage in more effort discounting '
+            + 'if the effort is imminent than when assigning the effort to their future selves. This may be considered an '
+            + 'objective analogue of tendency to procrastinate effort. This study will extend on this research by investigating ' 
+            + 'an additional characteristic, whether self-reported procrastination and effort discounting indeed correlate with each other. ' 
+            + 'For those participants who grant permission, we will additionally test whether one or both measures predicts academic' 
+            + 'performance in PSYC 1A and 1B.'
+          + '</p>' +
+        '<li><b>  Potential real-world implications: </b><br></li>' +
+          '<p style="text-align:left;line-height:190%;">' +
+            'Determining a correlation between self-reported procrastination and performance in effort discounting tasks has potential ' 
+            + 'real-life implications in understanding the outcomes and consequences of procrastination. Procrastination is not unique to '
+            + 'academic studies and can be experienced by everyone in their daily living. Therefore, by understanding the potential ' 
+            + 'consequences of having higher traits of procrastination and whether it is correlated with people&apos;s decision making ' 
+            + 'and/or performance in academic studies may lead to the development of strategies that people can adopt to avoid procrastination ' 
+            + 'if we know it is in their best interest.'
+            + '</p>' +
+        '<li><b>  Briefly describe a potential issue or limitation of the study </b><br></li>' +
+          '<p style="text-align:left;line-height:190%;">' +
+            'A potential practical issue of this study is that participants may not provide consent for us to collect their grades. This will ' 
+            + 'limit the effects we are able to observe, however if we are unable to collect this data, the study will still be valid in exploring ' 
+            + 'the relationship between self-reported procrastination and effort discounting. A possible limitation of the study is also that it ' 
+            + 'is to be conducted online with participants completing the experiment in their own time and space. '
+            + 'This means there are limits to how controlled the study is and we cannot guarantee participants&apos; full focus and attention. ' 
+            + 'However, the experiment will have clear instructions asking participants to be in a quiet, distraction free room and we will recruit ' 
+            + 'a large sample size to ensure accurate average results. '
+            + '</p>' +
+        '<li><b>  Briefly describe the study methodology </b><br></li>' +
+          '<p style="text-align:left;line-height:190%;">' +
+            'The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measure ' 
+            + 'of self-reported procrastination and end-of-term PSYC 1A and 1B grade. Dependent variables include score in Academic Procrastination Scale '
+            + '-Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables '
+            + 'are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).'
+            + '</p>' +
+        '<li><b>  Further readings </b><br></li>' +
+          '<p style="text-align:left;line-height:190%;">' +
+            'Johnson, S. T., & Most, S. B. (2023). Taking the path of least resistance now, but not later: Pushing cognitive effort into the future reduces effort discounting. ' 
+            + 'Psychon Bull Rev, 30(3), 1115-1124. https://doi.org/10.3758/s13423-022-02198-7 ' +
+        '</ol>'
+    },
+    choices: ['<p style="font-size:130%;line-height:0%;"><b>Finish</b></p>']
+  };
+  timeline.push(debriefing);
+
+
+
+
+
   //initialising experiment
   //set jatosVersion to false to run locally without JATOS, true when JATOS is understood and running
-  var jatosVersion = false;
-  if (jatosVersion === true) {
+  var jatosVersion = true;
+  if (jatosVersion === false) {
     //start the experiment without jatos wrapping
     jsPsych.init({
       timeline: timeline,
