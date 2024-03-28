@@ -257,17 +257,6 @@
       // convert responses from JSON string to JS object
       var responses = JSON.parse(data.responses);
 
-      //reverse scoring 
-      // Lara wont need this
-      responses.Q2 = 8 - responses.Q2;
-      responses.Q3 = 8 - responses.Q3;
-      responses.Q4 = 8 - responses.Q4;
-      responses.Q6 = 8 - responses.Q6;
-      responses.Q7 = 8 - responses.Q7;
-      responses.Q8 = 8 - responses.Q8;
-      responses.Q11 = 8 - responses.Q11;
-      responses.Q15 = 8 - responses.Q15;
-      responses.Q16 = 8 - responses.Q16;
 
       //changing scoring to -4 to +4 instead of 0 to +8
       // Lara's scoring = -2 to +2 
@@ -276,19 +265,6 @@
       responses.Q2 = responses.Q2 - 2;
       responses.Q3 = responses.Q3 - 2;
       responses.Q4 = responses.Q4 - 2;
-      responses.Q5 = responses.Q5 - 2;
-      responses.Q6 = responses.Q6 - 2;
-      responses.Q7 = responses.Q7 - 2;
-      responses.Q8 = responses.Q8 - 2;
-      responses.Q9 = responses.Q9 - 2;
-      responses.Q10 = responses.Q10 - 4;
-      responses.Q11 = responses.Q11 - 4;
-      responses.Q12 = responses.Q12 - 4;
-      responses.Q13 = responses.Q13 - 4;
-      responses.Q14 = responses.Q14 - 4;
-      responses.Q15 = responses.Q15 - 4;
-      responses.Q16 = responses.Q16 - 4;
-      responses.Q17 = responses.Q17 - 4;
 
 
       //Need for cognition score
