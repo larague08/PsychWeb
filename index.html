@@ -817,7 +817,7 @@
         timeline: timeline,
         show_progress_bar: true,
         on_finish: function() {
-          var results = jsPsych.data.get().ignore(['internal_node_id', 'button_pressed']).csv();
+          var results = jsPsych.data.get().ignore(['internal_node_id']).csv();
           jatos.submitResultData(results);
           document.write(`<div id="endscreen" class="endscreen" style="width:1000px"><div class="endscreen" style="text-align:center; border:0px solid; padding:10px; font-size:140%; width:800px;"><p><br><br><br>
           ${finish_msg}</p></div></div>`)
