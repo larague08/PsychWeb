@@ -70,7 +70,7 @@
         '<ol style="text-align:left;line-height:190%;margin:' + mWidth + ';">' +
         '<li>  We ask for your informed consent. Please read the participant information statement and consent form closely on the next page. <br></li>' +
         '<li>  You will then be asked some questions about yourself.<br></li>' +
-        '<li>  This experiment will then ask you a number of questions about scenarios that you may receive a reward in.<br></li>' +
+        '<li>  In the experiment you will engage in a series of choices between rewards that either do or do not require effort.<br></li>' +
         '<li>  Before starting the experiment, a detailed explanation of how to complete it will be given. <br></li>' +
         '<li>  In total it should take about 30 minutes to complete.<br></li>' +
 
@@ -109,7 +109,7 @@
       '     <b>What are the possible benefits to participation?</b><br>' +
       '     We cannot promise that you will receive any benefits from this study, but we hope to use the findings from this study to better understand people&apos;s approaches to effort. <br><br>' +
       '			<b>What will happen to information about me?</b><br>' +
-      '			The information that you give us will be kept indefinitely after the project is completed. We will store your deidentified data in a non-identifiable format in a UNSW closed server that is password protected.' +
+      '			The information that you give us will be stored indefinitely after the project&apos;s completion. Although your UNSW Student ID will initially be linked with your data, it will be removed upon the study&apos;s completion, at which point your data will be deidentified, with your Student ID replaced with non-identifiable, unique participant identifier numbers. ' +
       ' 		Researchers at UNSW are requested to store their aggregated research data in the UNSW data repository, this is a system called ResData. Once the aggregated data are deposited into this repository, they will be retained in this system permanently, but in a format where your data will not be individually identifiable.' +
       '			Answers that you give during the study may be used for publication, and may be shared with other researchers. However this data will be de-identified meaning that it will not be linked to personal information about you.<br><br>' +
       '			<b>Total Participation Time and Recompense to Participants</b><br>' +
@@ -118,11 +118,11 @@
       '			The research team intend to publish and/ report the results of the research study in a variety of ways. All information published will be done in a way that will not identify you. If you would like to receive a copy of the results you can let the research team know by e-mailing A/Prof Steven Most (s.most@unsw.edu.au). We will only use these details to send you the results of the research.</b> <br><br>' +
       '			<b>Inquiries</b><br>' +
       '			If you have any questions or concerns following your participation, A/Prof Steven Most (+61 2 9385 3827, email. s.most@unsw.edu.au) will be happy to address them. Complaints about the study may be directed to UNSW Human Research Ethics Coordinator, (phone +61 2 9385 6222, email humanethics@unsw.edu.au).<br><br> ' +
-      '			Please keep a copy of this information sheet and consent form (you can download the pdf <a href="Ethical-guideline-boundaries.pdf" target="_blank">here</a>).<br>' +
+      '			Please read this consent form before proceeding (you can download the pdf <a href="Ethical-guideline-boundaries.pdf" target="_blank">here</a>).<br>' +
       '			<br>' +
       '			<p style="text-align:center;"><b>PARTICIPANT CONSENT</b></p>' +
       '			<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth +
-      ';">By continuing, you are making a decision whether or not to participate.  Clicking the button below indicates that, having read the information provided on the participant information sheet, you have decided to participate.<br><br></p>',
+      ';">By continuing, you are making a decision whether or not to participate.  Clicking the button below indicates that, having read the information provided on the participant information sheet and consent form, you have decided to participate.<br><br></p>',
 
     choices: ['<p style="font-size:130%;line-height:0%;"><b>I agree</b></p>'],
     prompt: '<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth +
@@ -191,7 +191,7 @@
   timeline.push(warningPage);
 
   timeline.push({
-    type: 'fullscreen',
+    type: 'fullscreen.',
     fullscreen_mode: true
   });
 
@@ -345,8 +345,8 @@
     type: "instructions",
     pages: [
       "Thank you." +
-      "<br><br>You will now be asked a series of questions about whether you would like to type a number of words backwards for a given reward."  +
-      "<br><br>Please choose as though every reward you choose is <b>real</b> and going to be given to you.",
+      "<br><br>The experiment will now begin and you will be asked a series of questions about whether you would like to type a number of words backwards for a given reward."  +
+      "<br><br>Please choose as though every reward you choose is real and going to be given to you.",
     ],
     show_clickable_nav: true,
   };
