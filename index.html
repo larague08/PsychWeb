@@ -166,6 +166,36 @@
 
   timeline.push(user_information_form);
 
+  var user_course_form = {
+    type: "survey-html-form",
+    preamble: "<b>Please answer the following questions regarding your enrolment:</b>",
+    html: "<table>" +
+            "<tr>" +
+              "<td style='text-align:left; padding: 10px;'>In Term 2, are you currently completing PSYC1A, PSYC1B or both courses simultaneously?</td>" +
+              "<td style='text-align:right'>" +
+                "<select name='q1' required>" +
+                  "<option value=''>Select</option>" +
+                  "<option value='PSYC1A'>PSYC1A</option>" +
+                  "<option value='PSYC1B '>PSYC1B</option>" +
+                  "<option value='BothCourses'>Both courses simultaneously</option>" +
+                "</select>" +
+              "</td>" +
+            "</tr>" +
+            "<tr>" +
+              "<td style='text-align:left; padding: 10px;'>Did you complete PSYC1A in Term 1 2024?</td>" +
+              "<td style='text-align:right'>" +
+                "<select name='q2' required>" +
+                  "<option value=''>Select</option>" +
+                  "<option value='yes'>Yes</option>" +
+                  "<option value='no'>No</option>" +
+                "</select>" +
+              "</td>" +
+            "</tr>" +
+          "</table>",
+  };
+
+  timeline.push(user_course_form);
+
   ////////////////////////
   /* TASK 2 TO COMPLETE */
   ////////////////////////
@@ -191,7 +221,7 @@
   timeline.push(warningPage);
 
   timeline.push({
-    type: 'fullscreen.',
+    type: 'fullscreen',
     fullscreen_mode: true
   });
 
@@ -392,9 +422,9 @@
             first = SE_array.indexOf(initial_SE_reward + 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
             return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + first_effortlevel + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + first_effortlevel + ` words ` + time_point_variation + `</b>`;
             // return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
             // <br><br>OR<br><br>
             // Press 'L' if you would prefer to type <b>` + first_effortlevel + ` words</b> backwards for <b>$20 </b> ${time_point_variation}.`;
@@ -402,9 +432,9 @@
             last = SE_array.indexOf(initial_SE_reward - 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
             return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + first_effortlevel + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + first_effortlevel + ` words ` + time_point_variation + `</b>`;
           }
         },
         skeleton: initial_SE_reward,
@@ -418,16 +448,16 @@
             first = SE_array.indexOf(initial_SE_reward + 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
             return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + second_effortlevel + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + second_effortlevel + ` words ` + time_point_variation + `</b>`;
           } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
             last = SE_array.indexOf(initial_SE_reward - 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
             return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + second_effortlevel + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + second_effortlevel + ` words ` + time_point_variation + `</b>`;
           }
         },
         skeleton: initial_SE_reward,
@@ -441,16 +471,16 @@
             first = SE_array.indexOf(initial_SE_reward + 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
             return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + third_effortlevel + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + third_effortlevel + ` words ` + time_point_variation + `</b>`;
           } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
             last = SE_array.indexOf(initial_SE_reward - 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
             return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + third_effortlevel + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + third_effortlevel + ` words ` + time_point_variation + `</b>`;
           }
         },
         skeleton: initial_SE_reward,
@@ -464,16 +494,16 @@
             first = SE_array.indexOf(initial_SE_reward + 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
             return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + fourth_effortlevel + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + fourth_effortlevel + ` words ` + time_point_variation + `</b>`;
           } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
             last = SE_array.indexOf(initial_SE_reward - 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
             return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + fourth_effortlevel + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + fourth_effortlevel + ` words ` + time_point_variation + `</b>`;
           }
         },
         skeleton: initial_SE_reward,
@@ -495,9 +525,9 @@
       stimulus: function() {
         //setting first and last so that they're the same each time this timeline is iterated through
         return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
-            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + ` 
             <br><br>OR<br><br>
-            <b>L</b> - <b> $20</b> for typing <b>` + jsPsych.timelineVariable('specific_effort_level', true) + ` words</b>`;
+            <b>L</b> - <b> $20</b> for typing <b>` + jsPsych.timelineVariable('specific_effort_level', true) + ` words ` + time_point_variation + `</b>`;
         // return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
         //   <br><br>OR<br><br>
         //   Press 'L' if you would prefer to type <b>` + jsPsych.timelineVariable('specific_effort_level', true) + ` words </b> backwards for <b>$20</b> ${time_point_variation}.`;
@@ -621,7 +651,7 @@
   function thank_you(time_point_variation) {
     return {
       type: 'instructions',
-      pages: [`In the next few questions, you'll be asked what you would do if you had to wait <b>${time_point_variation}</b> before receiving the reward and exerting the effort.`],
+      pages: [`In the next few questions, you'll be asked what you would do if you had to wait <b>${time_point_variation}</b> before exerting the effort and receiving the associated reward.`],
       show_clickable_nav: true,
     };
 
@@ -708,14 +738,14 @@
       stimulus: '<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>' 
               + 'FINAL CONSENT STATEMENT</b><br></p>'
               + '<p style="text-align:left;line-height:190%;margin:' + mWidth + ';">'
-              + 'Thank you for participating in this study! <br><br> The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B.'  
+              + 'Thank you for participating in this study! <br><br> The investigators of this study request permission to access your course grades for the PSYC 1A and/or 1B.'  
               + 'This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task, date of experiment participation, and ' 
-              + 'grades. Only the faculty supervisor of this project will have access to information linking your student ID with your grades. <br><br>Once your grades have been collected and matched with data from this current study, your student '
+              + 'grades. Only the academic staff member of this project will have access to information linking your student ID with your grades. <br><br>Once your grades have been collected and matched with data from this current study, your student '
               + 'ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. <br><br>'
-              + '<b><i>I agree to have the researchers of this experiment collect my end-of-term grades for the PSYC 1A and 1B course. <br><br>'
+              + '<b><i>I agree to have the researchers of this experiment collect my course grades for the PSYC 1A and/or 1B course. <br><br>'
               + 'I understand that I am allowed to withhold permission and that withholding my permission will not affect my relationship '
               + 'with UNSW in any way. <br><br>'
-              + 'I grant permission for the researchers to access my PSYC 1A and 1B grades.'
+              + 'I grant permission for the researchers to access my PSYC 1A and/or 1B course grades.'
               + '</i></b></p>',
       choices: ['Yes', 'No'],
       prompt: "<br><b>Do you consent?</b><br>"
@@ -738,7 +768,7 @@
    // 4.	Briefly describe a potential issue or limitation of the study (BOLD TEXT)
    // A potential practical issue of this study is that participants may not provide consent for us to collect their grades. This will limit the effects we are able to observe, however if we are unable to collect this data, the study will still be valid in exploring the relationship between self-reported procrastination and effort discounting. A possible limitation of the study is also that it is to be conducted online with participants completing the experiment in their own time and space. This means there are limits to how controlled the study is and we cannot guarantee participants’ full focus and attention. However, the experiment will have clear instructions asking participants to be in a quiet, distraction free room and we will recruit a large sample size to ensure accurate average results.  
   // 5.	Briefly describe the study methodology (BOLD TEXT)
-  // The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measures of self-reported procrastination and end-of-term PSYC 1A and 1B grade. Dependent variables include score in Academic Procrastination Scale -Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).
+  // The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measures of self-reported procrastination and PSYC 1A and 1B course grades. Dependent variables include score in Academic Procrastination Scale -Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).
   // 6.	Further readings (BOLD TEXT)
   // Johnson, S. T., & Most, S. B. (2023). Taking the path of least resistance now, but not later: Pushing cognitive effort into the future reduces effort discounting. Psychon Bull Rev, 30(3), 1115-1124. https://doi.org/10.3758/s13423-022-02198-7 
 
@@ -785,8 +815,8 @@
         '<li><b>  Briefly describe the study methodology </b><br></li>' +
           '<p style="text-align:left;line-height:190%;">' +
             'The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measure ' 
-            + 'of self-reported procrastination and end-of-term PSYC 1A and 1B grade. Dependent variables include score in Academic Procrastination Scale '
-            + '-Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables '
+            + 'of self-reported procrastination and PSYC 1A and 1B course grades. Dependent variables include score in Academic Procrastination Scale '
+            + '-Short Form, choices on effort discounting task, and PSYC 1A and 1B course grades. In the effort discounting task, independent variables '
             + 'are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).'
             + '</p>' +
         '<li><b>  Further readings </b><br></li>' +
