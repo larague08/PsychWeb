@@ -97,7 +97,7 @@
 
   var welcome2 = {
     type: "html-button-response",
-    stimulus: '<p style="text-align:right;font-size:' + smallFontSize + ';margin:' + mWidth + ';margin-top:30px;">Approval No. </p>' +
+    stimulus: '<p style="text-align:right;font-size:' + smallFontSize + ';margin:' + mWidth + ';margin-top:30px;"></p>' +
       '			<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>' +
       '			PARTICIPANT INFORMATION STATEMENT</b><br><br><b>You Choose!</b><br></p>' +
       '			<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth + ';"><b>What is the research study about?</b><br>' + welcome.ethics.selection + '<br><br>' +
@@ -118,7 +118,7 @@
       '			The research team intend to publish and/ report the results of the research study in a variety of ways. All information published will be done in a way that will not identify you. If you would like to receive a copy of the results you can let the research team know by e-mailing A/Prof Steven Most (s.most@unsw.edu.au). We will only use these details to send you the results of the research.</b> <br><br>' +
       '			<b>Inquiries</b><br>' +
       '			If you have any questions or concerns following your participation, A/Prof Steven Most (+61 2 9385 3827, email. s.most@unsw.edu.au) will be happy to address them. Complaints about the study may be directed to UNSW Human Research Ethics Coordinator, (phone +61 2 9385 6222, email humanethics@unsw.edu.au).<br><br> ' +
-      '			Please read this consent form before proceeding (you can download the pdf <a href="Ethical-guideline-boundaries.pdf" target="_blank">here</a>).<br>' +
+      '			Please read this consent form before proceeding (you can download the pdf <a href="consent_form.pdf" target="_blank">here</a>).<br>' +
       '			<br>' +
       '			<p style="text-align:center;"><b>PARTICIPANT CONSENT</b></p>' +
       '			<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth +
@@ -140,7 +140,7 @@
   var user_information_form = {
     type: "survey-html-form",
     preamble: "Please provide the following information:",
-    html: "<table>" +
+    html: "<table style='margin: 0px auto;'>" +
             "<tr>" +
               "<td style='text-align:left; padding: 10px;'><b>Student ID (zID):</b></td>" +
               "<td style='text-align:right;'><input name='student_id' type='text' required></td>" +
@@ -161,7 +161,8 @@
                 "</select>" +
               "</td>" +
             "</tr>" +
-          "</table>",
+          "</table>" +
+          "<br><i>Please double-check your responses to ensure there are no typing errors.</i><br><br>",
   };
 
   timeline.push(user_information_form);
