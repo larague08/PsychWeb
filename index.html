@@ -54,7 +54,7 @@
   /* define welcome message trial */
   var welcome = {
     type: "html-keyboard-response",
-    stimulus: "Welcome to the experiment. Press any key to begin."
+    stimulus: "<b>Welcome to the experiment. Press any key to begin.</b><br><br> You are unable to complete this experiment on a mobile device. <br><br>Please ensure you are using a computer with a keyboard and mouse/trackpad before continuing."
   };
 
   timeline.push(welcome);
@@ -729,7 +729,7 @@
   ////////////////////////
 
   // Final consent question
-  // Thank you for participating in this study! We have one final question to ask. The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B. This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task and grades. Once your grades have been collected and matched with data from this current study, your student ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. 
+  // Thank you for completing this survey. The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B. This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task and grades. Once your grades have been collected and matched with data from this current study, your student ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. 
   // I agree to have the researchers of this experiment collect my end-of-term grades for the PSYC 1A and 1B course. I understand that I am allowed to withhold permission and that withholding my permission will not affect my relationship with UNSW in any way.
   // I grant permission for the researchers to access my PSYC 1A and 1B grades.       
    // yes AND no button and either answer pushes them to the next slide 
@@ -753,6 +753,18 @@
     };
 
   timeline.push(finalConsent);
+
+  var engageChecker= {
+      type: 'html-button-response',
+      stimulus: '<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br></b><br></p>'
+              + '<p style="text-align:center;line-height:190%;margin:' + mWidth + ';">'
+              + 'Thank you for participating in this study! <br><br> We have one final question to ask. <br>' 
+              + '<br><b>Did you do anything else (e.g. switch to another tab, look at your phone) whilst completeing this experiment?</b><br> '
+              + '<br>Please be honest. You will receieve your SONA credit points regardless of your response.<br>',
+      choices: ['Yes', 'No']
+    };
+
+  timeline.push(engageChecker);
 
 ////////////////////////
   /* TASK 4 TO COMPLETE */
