@@ -54,7 +54,7 @@
   /* define welcome message trial */
   var welcome = {
     type: "html-keyboard-response",
-    stimulus: "You are unable to complete this experiment on a mobile device. <br><br>Please ensure you are using a computer with a keyboard and mouse/trackpad before continuing. <br><b>Welcome to the experiment. Press any key to begin.</b><br><br>"
+    stimulus: "<b>Welcome to the experiment. Press any key to begin.</b><br><br>You are unable to complete this experiment on a mobile device. <br><br>Please ensure you are using a computer with a keyboard and mouse/trackpad before continuing.<br><br><br>"
   };
 
   timeline.push(welcome);
@@ -93,7 +93,7 @@
     `If you decide to take part in this research study, we will ask you to provide information about yourself, including your UNSW student number, your age and gender, as well as information regarding your current and previous course enrolment at UNSW. 
     You will answer some questions about your approach to schoolwork. You will be asked to type a number of words backwards and then will engage in a series of choices 
     between rewards that either do or do not require effort. At the end, you will be asked whether you provide consent to one final question. We don&apos;t expect this 
-    research to cause any harm. However, you may skip any or all written or verbal questions if you wish.  Please let the researchers know if you need any assistance for any reason.`;
+    research to cause any harm. However, you may skip any or all written questions if you wish.  Please let the researchers know if you need any assistance for any reason.`;
 
   var welcome2 = {
     type: "html-button-response",
@@ -319,9 +319,9 @@
   var typing_instructions = {
     type: "instructions",
     pages: [
-      "This experiment will guide you through a series of questions that each ask you to choose between two rewards. One of the rewards will require you to do a certain task to receive it." +
+      "This experiment will guide you through a series of questions that each ask you to choose between two rewards. One of the rewards will require you to do a certain task to receive it at the specified timepoint." +
       "<p>The task you will be performing to receive hypothetical rewards is a backwards typing task.</p>" +
-      "First, please perform this backwards typing task to get a feel for how difficult it is",
+      "First, please perform this backwards typing task to get a feel for how difficult it is. <br>",
     ],
     show_clickable_nav: true,
   };
@@ -377,7 +377,7 @@
     pages: [
       "Thank you." +
       "<br><br>The experiment will now begin and you will be asked a series of questions about whether you would like to type a number of words backwards for a given reward."  +
-      "<br><br>Please choose as though every reward you choose is real and going to be given to you.",
+      "<br><br>Please choose as though every reward you choose is real and going to be given to you.<br>",
     ],
     show_clickable_nav: true,
   };
