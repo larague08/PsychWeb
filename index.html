@@ -54,7 +54,7 @@
   /* define welcome message trial */
   var welcome = {
     type: "html-keyboard-response",
-    stimulus: "<b>Welcome to the experiment. Press any key to begin.</b><br><br> You are unable to complete this experiment on a mobile device. <br><br>Please ensure you are using a computer with a keyboard and mouse/trackpad before continuing."
+    stimulus: "You are unable to complete this experiment on a mobile device. <br><br>Please ensure you are using a computer with a keyboard and mouse/trackpad before continuing. <br><b>Welcome to the experiment. Press any key to begin.</b><br><br>"
   };
 
   timeline.push(welcome);
@@ -162,7 +162,7 @@
               "</td>" +
             "</tr>" +
           "</table>" +
-          "<br><i>Please double-check your responses to ensure there are no typing errors.</i><br><br>",
+          "<br><i>Please <b> double-check </b> your zID to make sure it is typed correct.</i><br><br>",
   };
 
   timeline.push(user_information_form);
@@ -754,17 +754,6 @@
 
   timeline.push(finalConsent);
 
-  var engageChecker= {
-      type: 'html-button-response',
-      stimulus: '<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br></b><br></p>'
-              + '<p style="text-align:center;line-height:190%;margin:' + mWidth + ';">'
-              + 'Thank you for participating in this study! <br><br> We have one final question to ask. <br>' 
-              + '<br><b>Did you do anything else (e.g. switch to another tab, look at your phone) whilst completeing this experiment?</b><br> '
-              + '<br>Please be honest. You will receieve your SONA credit points regardless of your response.<br>',
-      choices: ['Yes', 'No']
-    };
-
-  timeline.push(engageChecker);
 
 ////////////////////////
   /* TASK 4 TO COMPLETE */
