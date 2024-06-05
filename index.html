@@ -851,11 +851,11 @@
     jatos.onLoad(function() {
       /* start the experiment with jatos wrapping AND set up the SONA talk back*/
       // ---------- subject info ----------
-      sona_id = jatos.urlQueryParameters.pID; // jsPsych.data.getURLVariable("id");
+      sona_id = jatos.urlQueryParameters.sona_id; // jsPsych.data.getURLVariable("id");
       jsPsych.data.addProperties({
         sona_id: sona_id
       });
-      var completion_url = "https://unsw-psy.sona-systems.com/webstudy_credit.aspx?experiment_id=1373&credit_token=9a2498f9a35248b582fc119f6729baa5&survey_code=" + sona_id;
+      var completion_url = "https://unsw-psy.sona-systems.com/webstudy_credit.aspx?experiment_id=2148&credit_token=8a16c2ed4acf496ebc71e5a97b9c5af6&survey_code=" + sona_id;
       var finish_msg = 'All done! Please click <a href="' + completion_url + '">here</a> to be returned to Sona and receive your credit';
       jsPsych.init({
         timeline: timeline,
