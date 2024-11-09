@@ -54,7 +54,7 @@
   /* define welcome message trial */
   var welcome = {
     type: "html-keyboard-response",
-    stimulus: "Welcome to the experiment. Press any key to begin."
+    stimulus: "<b>Welcome to the experiment. Press any key to begin.</b><br><br>You are unable to complete this experiment on a mobile device. <br><br>Please ensure you are using a computer with a keyboard and mouse/trackpad before continuing.<br><br><br>"
   };
 
   timeline.push(welcome);
@@ -70,7 +70,7 @@
         '<ol style="text-align:left;line-height:190%;margin:' + mWidth + ';">' +
         '<li>  We ask for your informed consent. Please read the participant information statement and consent form closely on the next page. <br></li>' +
         '<li>  You will then be asked some questions about yourself.<br></li>' +
-        '<li>  This experiment will then ask you a number of questions about scenarios that you may receive a reward in.<br></li>' +
+        '<li>  In the experiment you will engage in a series of choices between rewards that either do or do not require effort.<br></li>' +
         '<li>  Before starting the experiment, a detailed explanation of how to complete it will be given. <br></li>' +
         '<li>  In total it should take about 30 minutes to complete.<br></li>' +
 
@@ -90,14 +90,14 @@
   welcome.ethics.selection =
     'You are invited to take part in this research study. The research study aims to investigate the relationship between decision-making and people&apos;s approach to effort, as well as their real-world relevance. You have been invited to participate because you are studying PSYC1A or PSYC1B at UNSW.';
   welcome.ethics.description =
-    `If you decide to take part in this research study, we will ask you to provide information about yourself, including your UNSW student number, your age and sex. 
+    `If you decide to take part in this research study, we will ask you to provide information about yourself, including your UNSW student number, your age and gender, as well as information regarding your current and previous course enrolment at UNSW. 
     You will answer some questions about your approach to schoolwork. You will be asked to type a number of words backwards and then will engage in a series of choices 
     between rewards that either do or do not require effort. At the end, you will be asked whether you provide consent to one final question. We don&apos;t expect this 
-    research to cause any harm. However, you may skip any or all written or verbal questions if you wish.  Please let the researchers know if you need any assistance for any reason.`;
+    research to cause any harm. However, you may skip any or all written questions if you wish.  Please let the researchers know if you need any assistance for any reason.`;
 
   var welcome2 = {
     type: "html-button-response",
-    stimulus: '<p style="text-align:right;font-size:' + smallFontSize + ';margin:' + mWidth + ';margin-top:30px;">Approval No. </p>' +
+    stimulus: '<p style="text-align:right;font-size:' + smallFontSize + ';margin:' + mWidth + ';margin-top:30px;"></p>' +
       '			<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>' +
       '			PARTICIPANT INFORMATION STATEMENT</b><br><br><b>You Choose!</b><br></p>' +
       '			<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth + ';"><b>What is the research study about?</b><br>' + welcome.ethics.selection + '<br><br>' +
@@ -109,20 +109,20 @@
       '     <b>What are the possible benefits to participation?</b><br>' +
       '     We cannot promise that you will receive any benefits from this study, but we hope to use the findings from this study to better understand people&apos;s approaches to effort. <br><br>' +
       '			<b>What will happen to information about me?</b><br>' +
-      '			The information that you give us will be kept indefinitely after the project is completed. We will store your deidentified data in a non-identifiable format in a UNSW closed server that is password protected.' +
+      '			The information that you give us will be stored indefinitely after the project&apos;s completion. Although your UNSW Student ID will initially be linked with your data, it will be removed upon the study&apos;s completion, at which point your data will be deidentified, with your Student ID replaced with non-identifiable, unique participant identifier numbers. ' +
       ' 		Researchers at UNSW are requested to store their aggregated research data in the UNSW data repository, this is a system called ResData. Once the aggregated data are deposited into this repository, they will be retained in this system permanently, but in a format where your data will not be individually identifiable.' +
       '			Answers that you give during the study may be used for publication, and may be shared with other researchers. However this data will be de-identified meaning that it will not be linked to personal information about you.<br><br>' +
       '			<b>Total Participation Time and Recompense to Participants</b><br>' +
-      '			In total, participation in this study will require about 30 minutes. You will receive 0.5 credit points as recompense for your participation. In addition to this, three participants will be selected at random to receive a voucher based a random selection of theirs in the choice task. </b> <br><br>' +
+      '			In total, participation in this study will require about 30 minutes. You will receive 0.5 credit points as recompense for your participation. </b> <br><br>' +
       '			<b>How and when will I find out what the results of the research study are?</b><br>' +
       '			The research team intend to publish and/ report the results of the research study in a variety of ways. All information published will be done in a way that will not identify you. If you would like to receive a copy of the results you can let the research team know by e-mailing A/Prof Steven Most (s.most@unsw.edu.au). We will only use these details to send you the results of the research.</b> <br><br>' +
       '			<b>Inquiries</b><br>' +
       '			If you have any questions or concerns following your participation, A/Prof Steven Most (+61 2 9385 3827, email. s.most@unsw.edu.au) will be happy to address them. Complaints about the study may be directed to UNSW Human Research Ethics Coordinator, (phone +61 2 9385 6222, email humanethics@unsw.edu.au).<br><br> ' +
-      '			Please keep a copy of this information sheet and consent form (you can download the pdf <a href="Ethical-guideline-boundaries.pdf" target="_blank">here</a>).<br>' +
+      '			Please read this consent form before proceeding (you can download the pdf <a href="consent_form.pdf" target="_blank">here</a>).<br>' +
       '			<br>' +
       '			<p style="text-align:center;"><b>PARTICIPANT CONSENT</b></p>' +
       '			<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth +
-      ';">By continuing, you are making a decision whether or not to participate.  Clicking the button below indicates that, having read the information provided on the participant information sheet, you have decided to participate.<br><br></p>',
+      ';">By continuing, you are making a decision whether or not to participate.  Clicking the button below indicates that, having read the information provided on the participant information sheet and consent form, you have decided to participate.<br><br></p>',
 
     choices: ['<p style="font-size:130%;line-height:0%;"><b>I agree</b></p>'],
     prompt: '<p style="text-align:left;font-size:' + smallFontSize + ';margin:' + mWidth +
@@ -140,7 +140,7 @@
   var user_information_form = {
     type: "survey-html-form",
     preamble: "Please provide the following information:",
-    html: "<table>" +
+    html: "<table style='margin: 0px auto;'>" +
             "<tr>" +
               "<td style='text-align:left; padding: 10px;'><b>Student ID (zID):</b></td>" +
               "<td style='text-align:right;'><input name='student_id' type='text' required></td>" +
@@ -161,10 +161,41 @@
                 "</select>" +
               "</td>" +
             "</tr>" +
-          "</table>",
+          "</table>" +
+          "<br><i>Please <b> double-check </b> your zID to make sure it is typed correct.</i><br><br>",
   };
 
   timeline.push(user_information_form);
+
+  var user_course_form = {
+    type: "survey-html-form",
+    preamble: "<b>Please answer the following questions regarding your enrolment:</b>",
+    html: "<table>" +
+            "<tr>" +
+              "<td style='text-align:left; padding: 10px;'>In Term 2, are you currently completing PSYC1A, PSYC1B or both courses simultaneously?</td>" +
+              "<td style='text-align:right'>" +
+                "<select name='q1' required>" +
+                  "<option value=''>Select</option>" +
+                  "<option value='PSYC1A'>PSYC1A</option>" +
+                  "<option value='PSYC1B '>PSYC1B</option>" +
+                  "<option value='BothCourses'>Both courses simultaneously</option>" +
+                "</select>" +
+              "</td>" +
+            "</tr>" +
+            "<tr>" +
+              "<td style='text-align:left; padding: 10px;'>Did you complete PSYC1A in Term 1 2024?</td>" +
+              "<td style='text-align:right'>" +
+                "<select name='q2' required>" +
+                  "<option value=''>Select</option>" +
+                  "<option value='yes'>Yes</option>" +
+                  "<option value='no'>No</option>" +
+                "</select>" +
+              "</td>" +
+            "</tr>" +
+          "</table>",
+  };
+
+  timeline.push(user_course_form);
 
   ////////////////////////
   /* TASK 2 TO COMPLETE */
@@ -257,17 +288,6 @@
       // convert responses from JSON string to JS object
       var responses = JSON.parse(data.responses);
 
-      //reverse scoring 
-      // Lara wont need this
-      responses.Q2 = 8 - responses.Q2;
-      responses.Q3 = 8 - responses.Q3;
-      responses.Q4 = 8 - responses.Q4;
-      responses.Q6 = 8 - responses.Q6;
-      responses.Q7 = 8 - responses.Q7;
-      responses.Q8 = 8 - responses.Q8;
-      responses.Q11 = 8 - responses.Q11;
-      responses.Q15 = 8 - responses.Q15;
-      responses.Q16 = 8 - responses.Q16;
 
       //changing scoring to -4 to +4 instead of 0 to +8
       // Lara's scoring = -2 to +2 
@@ -276,19 +296,6 @@
       responses.Q2 = responses.Q2 - 2;
       responses.Q3 = responses.Q3 - 2;
       responses.Q4 = responses.Q4 - 2;
-      responses.Q5 = responses.Q5 - 2;
-      responses.Q6 = responses.Q6 - 2;
-      responses.Q7 = responses.Q7 - 2;
-      responses.Q8 = responses.Q8 - 2;
-      responses.Q9 = responses.Q9 - 2;
-      responses.Q10 = responses.Q10 - 4;
-      responses.Q11 = responses.Q11 - 4;
-      responses.Q12 = responses.Q12 - 4;
-      responses.Q13 = responses.Q13 - 4;
-      responses.Q14 = responses.Q14 - 4;
-      responses.Q15 = responses.Q15 - 4;
-      responses.Q16 = responses.Q16 - 4;
-      responses.Q17 = responses.Q17 - 4;
 
 
       //Need for cognition score
@@ -312,11 +319,9 @@
   var typing_instructions = {
     type: "instructions",
     pages: [
-      "This experiment will guide you through a series of questions that each ask you to choose between two rewards. One of the rewards will require you to do a certain task to receive it." +
-      "<br><br><b>We will be choosing 3 participants at random</b> to receive one of their rewards (and if they chose the reward that requires a task, they will have to perform the task prior)." +
-      "<br><br>So, please choose as though every reward is going to be given to you.",
-      "<p>The task you will be performing to receive rewards is a backwards typing task.</p>" +
-      "First, please perform this backwards typing task to get a feel for how difficult it is",
+      "This experiment will guide you through a series of questions that each ask you to choose between two rewards. One of the rewards will require you to do a certain task to receive it at the specified timepoint." +
+      "<p>The task you will be performing to receive hypothetical rewards is a backwards typing task.</p>" +
+      "First, please perform this backwards typing task to get a feel for how difficult it is. <br>",
     ],
     show_clickable_nav: true,
   };
@@ -371,9 +376,8 @@
     type: "instructions",
     pages: [
       "Thank you." +
-      "<br><br>You will now be asked a series of questions about whether you would like to type a number of words backwards for a given reward." +
-      "<br><br>Remember, we will be <b>choosing 3 participants at random</b> to receive one of their rewards (and if they chose the reward that requires a task, they will have to perform the task prior)." +
-      "<br><br>So, please choose as though every reward you choose is <b>real</b> and going to be given to you.",
+      "<br><br>The experiment will now begin and you will be asked a series of questions about whether you would like to type a number of words backwards for a given reward."  +
+      "<br><br>Please choose as though every reward you choose is real and going to be given to you.<br>",
     ],
     show_clickable_nav: true,
   };
@@ -418,15 +422,20 @@
           if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'l') {
             first = SE_array.indexOf(initial_SE_reward + 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
-            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+            return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            Press 'L' if you would prefer to type ` + first_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+            <b>L</b> - <b> $20</b> for typing <b>` + first_effortlevel + ` words ` + time_point_variation + `</b>`;
+            // return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+            // <br><br>OR<br><br>
+            // Press 'L' if you would prefer to type <b>` + first_effortlevel + ` words</b> backwards for <b>$20 </b> ${time_point_variation}.`;
           } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
             last = SE_array.indexOf(initial_SE_reward - 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
-            return `Press 'A' to if you would you prefer to simply receive <b>$` + initial_SE_reward + `</b> ${time_point_variation}
+            return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
             <br><br>OR<br><br>
-            Press 'L' if you would prefer to type ` + first_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+            <b>L</b> - <b> $20</b> for typing <b>` + first_effortlevel + ` words ` + time_point_variation + `</b>`;
           }
         },
         skeleton: initial_SE_reward,
@@ -439,15 +448,17 @@
           if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'l') {
             first = SE_array.indexOf(initial_SE_reward + 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
-            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
-          <br><br>OR<br><br>
-          Press 'L' if you would prefer to type ` + second_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+            return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
+            <br><br>OR<br><br>
+            <b>L</b> - <b> $20</b> for typing <b>` + second_effortlevel + ` words ` + time_point_variation + `</b>`;
           } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
             last = SE_array.indexOf(initial_SE_reward - 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
-            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
-          <br><br>OR<br><br>
-          Press 'L' if you would prefer to type ` + second_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+            return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
+            <br><br>OR<br><br>
+            <b>L</b> - <b> $20</b> for typing <b>` + second_effortlevel + ` words ` + time_point_variation + `</b>`;
           }
         },
         skeleton: initial_SE_reward,
@@ -460,15 +471,17 @@
           if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'l') {
             first = SE_array.indexOf(initial_SE_reward + 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
-            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
-        <br><br>OR<br><br>
-        Press 'L' if you would prefer to type ` + third_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+            return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
+            <br><br>OR<br><br>
+            <b>L</b> - <b> $20</b> for typing <b>` + third_effortlevel + ` words ` + time_point_variation + `</b>`;
           } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
             last = SE_array.indexOf(initial_SE_reward - 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
-            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
-        <br><br>OR<br><br>
-        Press 'L' if you would prefer to type ` + third_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+            return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
+            <br><br>OR<br><br>
+            <b>L</b> - <b> $20</b> for typing <b>` + third_effortlevel + ` words ` + time_point_variation + `</b>`;
           }
         },
         skeleton: initial_SE_reward,
@@ -481,15 +494,17 @@
           if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'l') {
             first = SE_array.indexOf(initial_SE_reward + 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
-            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
-      <br><br>OR<br><br>
-      Press 'L' if you would prefer to type ` + fourth_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+            return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
+            <br><br>OR<br><br>
+            <b>L</b> - <b> $20</b> for typing <b>` + fourth_effortlevel + ` words ` + time_point_variation + `</b>`;
           } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(jsPsych.data.get().last(1).values()[0].key_press) == 'a') {
             last = SE_array.indexOf(initial_SE_reward - 1);
             initial_SE_reward = SE_array[Math.floor((first + last) / 2)]; //finds the index of the new middle and locates it in SE_array, then assigns the value of that index to initial_SE_reward
-            return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
-      <br><br>OR<br><br>
-      Press 'L' if you would prefer to type ` + fourth_effortlevel + ` words backwards for <b>$20 </b>${time_point_variation}.`;
+            return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + `
+            <br><br>OR<br><br>
+            <b>L</b> - <b> $20</b> for typing <b>` + fourth_effortlevel + ` words ` + time_point_variation + `</b>`;
           }
         },
         skeleton: initial_SE_reward,
@@ -510,9 +525,13 @@
       post_trial_gap: 500,
       stimulus: function() {
         //setting first and last so that they're the same each time this timeline is iterated through
-        return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
-          <br><br>OR<br><br>
-          Press 'L' if you would prefer to type ` + jsPsych.timelineVariable('specific_effort_level', true) + ` words backwards for <b>$20</b> ${time_point_variation}.`;
+        return "Press 'A' or 'L' to choose which option you would prefer " + ` ${time_point_variation}:
+            <br></br><b>A</b> - <b>$` + initial_SE_reward + `</b> for doing nothing ` + time_point_variation + ` 
+            <br><br>OR<br><br>
+            <b>L</b> - <b> $20</b> for typing <b>` + jsPsych.timelineVariable('specific_effort_level', true) + ` words ` + time_point_variation + `</b>`;
+        // return "Press 'A' to if you would you prefer to simply receive <b>$" + initial_SE_reward + `</b> ${time_point_variation}
+        //   <br><br>OR<br><br>
+        //   Press 'L' if you would prefer to type <b>` + jsPsych.timelineVariable('specific_effort_level', true) + ` words </b> backwards for <b>$20</b> ${time_point_variation}.`;
       },
       choices: ['a', 'l'],
       data: {
@@ -633,7 +652,7 @@
   function thank_you(time_point_variation) {
     return {
       type: 'instructions',
-      pages: [`In the next few questions, you'll be asked what you would do if you had to wait <b>${time_point_variation}</b> before receiving the reward and exerting the effort.`],
+      pages: [`In the next few questions, you'll be asked what you would do if you had to wait <b>${time_point_variation}</b> before exerting the effort and receiving the associated reward.`],
       show_clickable_nav: true,
     };
 
@@ -657,8 +676,8 @@
 
   //creating variables for timepoint0
   var timepoint0 = {
-    timeline: [discounting_skeleton("<i>right now</i>"), finding_indifference_point, break_trial],
-    timeline_variables: question_stimuli("<i>right now</i>"),
+    timeline: [discounting_skeleton("<i><b>right now</b></i>"), finding_indifference_point, break_trial],
+    timeline_variables: question_stimuli("<i><b>right now</b></i>"),
     data: {
       timepoint: 0
     },
@@ -670,8 +689,8 @@
 
   //creating variables for timepoint1
   var timepoint1 = {
-    timeline: [discounting_skeleton("<i>one day from now</i>"), finding_indifference_point, break_trial],
-    timeline_variables: question_stimuli("<i>one day from now</i>"),
+    timeline: [discounting_skeleton("<i><b>one day from now</b></i>"), finding_indifference_point, break_trial],
+    timeline_variables: question_stimuli("<i><b>one day from now</b></i>"),
     data: {
       timepoint: 1
     },
@@ -681,8 +700,8 @@
 
   //creating variables for timepoint2
   var timepoint2 = {
-    timeline: [discounting_skeleton("<i>one month from now</i>"), finding_indifference_point, break_trial],
-    timeline_variables: question_stimuli("<i>one month from now</i>"),
+    timeline: [discounting_skeleton("<i><b>one month from now</b></i>"), finding_indifference_point, break_trial],
+    timeline_variables: question_stimuli("<i><b>one month from now</b></i>"),
     data: {
       timepoint: 2
     },
@@ -710,7 +729,7 @@
   ////////////////////////
 
   // Final consent question
-  // Thank you for participating in this study! We have one final question to ask. The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B. This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task and grades. Once your grades have been collected and matched with data from this current study, your student ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. 
+  // Thank you for completing this survey. The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B. This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task and grades. Once your grades have been collected and matched with data from this current study, your student ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. 
   // I agree to have the researchers of this experiment collect my end-of-term grades for the PSYC 1A and 1B course. I understand that I am allowed to withhold permission and that withholding my permission will not affect my relationship with UNSW in any way.
   // I grant permission for the researchers to access my PSYC 1A and 1B grades.       
    // yes AND no button and either answer pushes them to the next slide 
@@ -720,20 +739,21 @@
       stimulus: '<p style="text-align:center;"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>' 
               + 'FINAL CONSENT STATEMENT</b><br></p>'
               + '<p style="text-align:left;line-height:190%;margin:' + mWidth + ';">'
-              + 'Thank you for participating in this study! <br><br> The investigators of this study request permission to access your end-of-term grades for the PSYC 1A and 1B.'  
+              + 'Thank you for participating in this study! <br><br> The investigators of this study request permission to access your class grades for the PSYC 1A and/or 1B.'  
               + 'This will be used to examine relationships between self-reported procrastination, effort related decisions in the lab task, date of experiment participation, and ' 
-              + 'grades. Only the faculty supervisor of this project will have access to information linking your student ID with your grades. <br><br>Once your grades have been collected and matched with data from this current study, your student '
+              + 'grades. Only the academic staff member of this project will have access to information linking your student ID with your grades. <br><br>Once your grades have been collected and matched with data from this current study, your student '
               + 'ID numbers will be removed from the data and replaced with non-identifiable, unique participant identifier numbers. <br><br>'
-              + '<b><i>I agree to have the researchers of this experiment collect my end-of-term grades for the PSYC 1A and 1B course. <br><br>'
+              + '<b><i>I agree to have the researchers of this experiment collect my class grades for the PSYC 1A and/or 1B course. <br><br>'
               + 'I understand that I am allowed to withhold permission and that withholding my permission will not affect my relationship '
               + 'with UNSW in any way. <br><br>'
-              + 'I grant permission for the researchers to access my PSYC 1A and 1B grades.'
+              + 'I grant permission for the researchers to access my PSYC 1A and/or 1B class grades.'
               + '</i></b></p>',
       choices: ['Yes', 'No'],
       prompt: "<br><b>Do you consent?</b><br>"
     };
 
   timeline.push(finalConsent);
+
 
 ////////////////////////
   /* TASK 4 TO COMPLETE */
@@ -750,7 +770,7 @@
    // 4.	Briefly describe a potential issue or limitation of the study (BOLD TEXT)
    // A potential practical issue of this study is that participants may not provide consent for us to collect their grades. This will limit the effects we are able to observe, however if we are unable to collect this data, the study will still be valid in exploring the relationship between self-reported procrastination and effort discounting. A possible limitation of the study is also that it is to be conducted online with participants completing the experiment in their own time and space. This means there are limits to how controlled the study is and we cannot guarantee participants’ full focus and attention. However, the experiment will have clear instructions asking participants to be in a quiet, distraction free room and we will recruit a large sample size to ensure accurate average results.  
   // 5.	Briefly describe the study methodology (BOLD TEXT)
-  // The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measures of self-reported procrastination and end-of-term PSYC 1A and 1B grade. Dependent variables include score in Academic Procrastination Scale -Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).
+  // The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measures of self-reported procrastination and PSYC 1A and 1B course grades. Dependent variables include score in Academic Procrastination Scale -Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).
   // 6.	Further readings (BOLD TEXT)
   // Johnson, S. T., & Most, S. B. (2023). Taking the path of least resistance now, but not later: Pushing cognitive effort into the future reduces effort discounting. Psychon Bull Rev, 30(3), 1115-1124. https://doi.org/10.3758/s13423-022-02198-7 
 
@@ -797,8 +817,8 @@
         '<li><b>  Briefly describe the study methodology </b><br></li>' +
           '<p style="text-align:left;line-height:190%;">' +
             'The design of this study combines within-subjects manipulations of the amount timing of hypothetical effort and between-subjects measure ' 
-            + 'of self-reported procrastination and end-of-term PSYC 1A and 1B grade. Dependent variables include score in Academic Procrastination Scale '
-            + '-Short Form, choices on effort discounting task, and end-of-term PSYC 1A and 1B grades. In the effort discounting task, independent variables '
+            + 'of self-reported procrastination and PSYC 1A and 1B class grades. Dependent variables include score in Academic Procrastination Scale '
+            + '-Short Form, choices on effort discounting task, and PSYC 1A and 1B class grades. In the effort discounting task, independent variables '
             + 'are the level of effort (i.e., number of words typed backwards) and temporal distance (i.e., whether the effort is imagined to be imminent or in the future).'
             + '</p>' +
         '<li><b>  Further readings </b><br></li>' +
@@ -831,17 +851,17 @@
     jatos.onLoad(function() {
       /* start the experiment with jatos wrapping AND set up the SONA talk back*/
       // ---------- subject info ----------
-      sona_id = jatos.urlQueryParameters.pID; // jsPsych.data.getURLVariable("id");
+      sona_id = jatos.urlQueryParameters.sona_id; // jsPsych.data.getURLVariable("id");
       jsPsych.data.addProperties({
         sona_id: sona_id
       });
-      var completion_url = "https://unsw-psy.sona-systems.com/webstudy_credit.aspx?experiment_id=1373&credit_token=9a2498f9a35248b582fc119f6729baa5&survey_code=" + sona_id;
+      var completion_url = "https://unsw-psy.sona-systems.com/webstudy_credit.aspx?experiment_id=2148&credit_token=8a16c2ed4acf496ebc71e5a97b9c5af6&survey_code=" + sona_id;
       var finish_msg = 'All done! Please click <a href="' + completion_url + '">here</a> to be returned to Sona and receive your credit';
       jsPsych.init({
         timeline: timeline,
         show_progress_bar: true,
         on_finish: function() {
-          var results = jsPsych.data.get().ignore(['internal_node_id', 'button_pressed']).csv();
+          var results = jsPsych.data.get().ignore(['internal_node_id']).csv();
           jatos.submitResultData(results);
           document.write(`<div id="endscreen" class="endscreen" style="width:1000px"><div class="endscreen" style="text-align:center; border:0px solid; padding:10px; font-size:140%; width:800px;"><p><br><br><br>
           ${finish_msg}</p></div></div>`)
