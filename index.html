@@ -837,7 +837,21 @@
 
   //initialising experiment
   //set jatosVersion to false to run locally without JATOS, true when JATOS is understood and running
-  var jatosVersion = true;
+
+  ////////////////////////////////
+  /* RUNNING EXPERIMENT LOCALLY */
+  ////////////////////////////////
+  
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // * To run experiment locally (without JATOS), set jatosVersion to false. This will allow you to open this .html //
+  //   file in your browser and run through the experiment                                                          //
+  // * THIS DOES NOT START A JATOS EXPERIMENT                                                                       //
+  // * To run with JATOS, ensure a local jatos server is running (./loader.sh start in JATOS installation).         //
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  var jatosVersion = false;
+
+
   if (jatosVersion === false) {
     //start the experiment without jatos wrapping
     jsPsych.init({
